@@ -1,5 +1,4 @@
-﻿using MetroFramework;
-using MetroFramework.Forms;
+﻿using MetroFramework.Forms;
 using Newtonsoft.Json;
 using Reisswolf.Desktop.Helpers;
 using Reisswolf.Desktop.Models;
@@ -11,7 +10,6 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -56,7 +54,7 @@ namespace Reisswolf.Desktop
 
                         if (incomeData != null && incomeData.ItWillScanFlag)
                         {
-                            var result = MessageBox.Show(this, "\nTaranacak kayıtlar mevcuttur.", "Taranacak Kayıt", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            var result = MessageBox.Show("Taranacak kayıtlar mevcuttur.", "Taranacak Kayıt", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
 
@@ -73,15 +71,22 @@ namespace Reisswolf.Desktop
         private void btnGetDataFromDb_Click(object sender, EventArgs e)
         {
 
-            var result = MetroMessageBox.Show(this, "\nListedeki veriler veritabanından tekrar çekilecek.\nOnaylıyor musunuz?",
+            var result = MessageBox.Show(this, "Listedeki veriler veritabanından tekrar çekilecek.\nOnaylıyor musunuz?",
                                                "Veritabanından Veri Çek",
                                                MessageBoxButtons.YesNoCancel,
                                                MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
-                SetData();
+                if (dataGridScannedBarcodes.Rows.Count > 0)
+                {
+                    MessageBox.Show("İşlem yapılmamış kayıtlar var. \nVeritabanından veri almadan önce işlem yapılmamış kayıtları kaydediniz ya da gönderiniz.", "Uyarı");
+                }
+                else
+                    SetData();
             }
+
+            txtBarcode.Focus();
         }
 
         private async void btnSend_Click(object sender, EventArgs e)
@@ -103,6 +108,17 @@ namespace Reisswolf.Desktop
         #endregion
 
         #region Methods
+
+        private void ClearData(List<string> barcodeList = null)
+        {
+            dataGridScannedBarcodes.Rows.Clear();
+            scannedBarcodes.Clear();
+
+            barcodeList.ForEach(x =>
+            {
+                listView1.Items.RemoveByKey(x);
+            });
+        }
 
         private void SetData(bool? addToExistData = false)
         {
@@ -128,7 +144,7 @@ namespace Reisswolf.Desktop
 
             if (!await GetTokenFromService())
             {
-                System.Windows.Forms.MessageBox.Show("Servis ile bağlantı kurulamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Servis ile bağlantı kurulamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -199,7 +215,11 @@ namespace Reisswolf.Desktop
                                         IsScanned = true,
                                         Status = (int)EnumOutgoingStatus.Sent,
                                         NationalIdentityNo = incomeData != null && string.IsNullOrWhiteSpace(incomeData.NationalIdentityNo) ? incomeData.NationalIdentityNo : "",
-                                        CompanyCode = incomeData != null && string.IsNullOrWhiteSpace(incomeData.CompanyCode) ? incomeData.CompanyCode : ""
+                                        CompanyCode = incomeData != null && string.IsNullOrWhiteSpace(incomeData.CompanyCode) ? incomeData.CompanyCode : "",
+                                        CreatedBy = Core.ActiveUser.ID,
+                                        CreatedDate = sentTime,
+                                        IsActive= true,
+                                        IsDeleted= false
                                     };
 
                                     sendDataProgressBar.Value = 70 + index++ * 100 / (70 + dataCount);
@@ -212,17 +232,11 @@ namespace Reisswolf.Desktop
                         sendDataProgressBar.Update();
 
                         //System.Windows.Forms.MessageBox.Show("Veriler Gönderildi.", "Veri Gönderimi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        MessageBox.Show(this, "\nVeriler Gönderildi.", "Veri Gönderimi", MessageBoxButtons.OK, MessageBoxIcon.Information, 125);
+                        MessageBox.Show("Veriler Gönderildi.", "Veri Gönderimi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         sendDataProgressBar.Visible = lblProgressBar.Visible = false;
 
-                        dataGridScannedBarcodes.Rows.Clear();
-                        scannedBarcodes.Clear();
-
-                        sentBarcodes.ForEach(x =>
-                        {
-                            listView1.Items.RemoveByKey(x);
-                        });
+                        ClearData(sentBarcodes);
                     }
                 }
                 catch (Exception ex)
@@ -279,6 +293,8 @@ namespace Reisswolf.Desktop
             if (dataGridScannedBarcodes.Rows.Count <= 0)
                 return;
 
+            DateTime saveTime = DateTime.Now;
+
             List<FIBAOutgoing> waitingDatas = new List<FIBAOutgoing>();
             List<string> waitingDataString = new List<string>();
 
@@ -301,7 +317,11 @@ namespace Reisswolf.Desktop
                     NationalIdentityNo = nationalIdentityNo,
                     ParcelCodeArchiveNo = archiveNo,
                     IsScanned = isScanned,
-                    Status = (int)EnumOutgoingStatus.Waiting
+                    Status = (int)EnumOutgoingStatus.Waiting,
+                    CreatedBy = Core.ActiveUser.ID,
+                    CreatedDate = saveTime,
+                    IsActive = true,
+                    IsDeleted = false
                 };
 
                 waitingDatas.Add(outgoingData);
@@ -323,13 +343,7 @@ namespace Reisswolf.Desktop
             {
                 await Core.database.SaveChangesAsync();
 
-                dataGridScannedBarcodes.Rows.Clear();
-                scannedBarcodes.Clear();
-
-                waitingDataString.ForEach(x =>
-                {
-                    listView1.Items.RemoveByKey(x);
-                });
+                ClearData(waitingDataString);
             }
             catch (Exception)
             {

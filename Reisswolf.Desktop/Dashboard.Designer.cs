@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("DocumentSerialNo", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("DocumentSerialNo", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.tabMofMovements = new MetroFramework.Controls.MetroTabPage();
             this.lblProgressBar = new MetroFramework.Controls.MetroLabel();
@@ -78,6 +78,11 @@
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.metroTextBox5 = new MetroFramework.Controls.MetroTextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fIBAIncomeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabSentData = new MetroFramework.Controls.MetroTabPage();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
@@ -98,11 +103,6 @@
             this.btnSentDataExportToExcel = new MetroFramework.Controls.MetroButton();
             this.txtReportCourrierNo = new MetroFramework.Controls.MetroTextBox();
             this.dataGridReport = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fIBAIncomeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ıDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ısScannedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.documentSerialNoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -120,10 +120,10 @@
             this.tabIncomeData.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fIBAIncomeBindingSource)).BeginInit();
             this.tabSentData.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fIBAIncomeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fIBAOutgoingBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -292,8 +292,8 @@
             // ScannedNationalIdentityNo
             // 
             this.ScannedNationalIdentityNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.NullValue = " ";
-            this.ScannedNationalIdentityNo.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.NullValue = " ";
+            this.ScannedNationalIdentityNo.DefaultCellStyle = dataGridViewCellStyle1;
             this.ScannedNationalIdentityNo.HeaderText = "TCKN";
             this.ScannedNationalIdentityNo.Name = "ScannedNationalIdentityNo";
             this.ScannedNationalIdentityNo.ReadOnly = true;
@@ -301,8 +301,8 @@
             // ScannedCompanyCode
             // 
             this.ScannedCompanyCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.NullValue = " ";
-            this.ScannedCompanyCode.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.NullValue = " ";
+            this.ScannedCompanyCode.DefaultCellStyle = dataGridViewCellStyle2;
             this.ScannedCompanyCode.HeaderText = "Company Code";
             this.ScannedCompanyCode.Name = "ScannedCompanyCode";
             this.ScannedCompanyCode.ReadOnly = true;
@@ -412,10 +412,10 @@
             this.ColDocumentSerialNo});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
-            listViewGroup2.Header = "DocumentSerialNo";
-            listViewGroup2.Name = "MOFS";
+            listViewGroup1.Header = "DocumentSerialNo";
+            listViewGroup1.Name = "MOFS";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup2});
+            listViewGroup1});
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(315, 32);
             this.listView1.Name = "listView1";
@@ -815,6 +815,43 @@
             this.dataGridView1.Size = new System.Drawing.Size(1073, 518);
             this.dataGridView1.TabIndex = 14;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.dataGridViewTextBoxColumn1.FillWeight = 50F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "DocumentSerialNo";
+            this.dataGridViewTextBoxColumn2.HeaderText = "DocumentSerialNo";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "NationalIdentityNo";
+            this.dataGridViewTextBoxColumn3.HeaderText = "NationalIdentityNo";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "CompanyCode";
+            this.dataGridViewTextBoxColumn4.HeaderText = "CompanyCode";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // fIBAIncomeBindingSource
+            // 
+            this.fIBAIncomeBindingSource.DataSource = typeof(Reisswolf.Desktop.FIBAIncome);
+            // 
             // tabSentData
             // 
             this.tabSentData.Controls.Add(this.metroPanel1);
@@ -1167,43 +1204,6 @@
             this.dataGridReport.Size = new System.Drawing.Size(1073, 518);
             this.dataGridReport.TabIndex = 2;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.dataGridViewTextBoxColumn1.FillWeight = 50F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "DocumentSerialNo";
-            this.dataGridViewTextBoxColumn2.HeaderText = "DocumentSerialNo";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "NationalIdentityNo";
-            this.dataGridViewTextBoxColumn3.HeaderText = "NationalIdentityNo";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "CompanyCode";
-            this.dataGridViewTextBoxColumn4.HeaderText = "CompanyCode";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // fIBAIncomeBindingSource
-            // 
-            this.fIBAIncomeBindingSource.DataSource = typeof(Reisswolf.Desktop.FIBAIncome);
-            // 
             // ıDDataGridViewTextBoxColumn1
             // 
             this.ıDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
@@ -1273,9 +1273,9 @@
             // 
             this.sentTimeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.sentTimeDataGridViewTextBoxColumn.DataPropertyName = "SentTime";
-            dataGridViewCellStyle6.Format = "G";
-            dataGridViewCellStyle6.NullValue = null;
-            this.sentTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Format = "G";
+            dataGridViewCellStyle3.NullValue = null;
+            this.sentTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.sentTimeDataGridViewTextBoxColumn.HeaderText = "SentTime";
             this.sentTimeDataGridViewTextBoxColumn.Name = "sentTimeDataGridViewTextBoxColumn";
             this.sentTimeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -1310,11 +1310,11 @@
             this.metroPanel2.ResumeLayout(false);
             this.metroPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fIBAIncomeBindingSource)).EndInit();
             this.tabSentData.ResumeLayout(false);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fIBAIncomeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fIBAOutgoingBindingSource)).EndInit();
             this.ResumeLayout(false);
 
