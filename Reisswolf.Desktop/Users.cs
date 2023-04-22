@@ -14,6 +14,17 @@ namespace Reisswolf.Desktop
     
     public partial class Users
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Users()
+        {
+            this.FIBAIncome = new HashSet<FIBAIncome>();
+            this.FIBAIncome1 = new HashSet<FIBAIncome>();
+            this.FIBAOutgoing = new HashSet<FIBAOutgoing>();
+            this.FIBAOutgoing1 = new HashSet<FIBAOutgoing>();
+            this.Users1 = new HashSet<Users>();
+            this.Users11 = new HashSet<Users>();
+        }
+    
         public int ID { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
@@ -29,5 +40,20 @@ namespace Reisswolf.Desktop
         public Nullable<int> ModifiedBy { get; set; }
         public bool IsDeleted { get; set; }
         public bool IsActive { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FIBAIncome> FIBAIncome { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FIBAIncome> FIBAIncome1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FIBAOutgoing> FIBAOutgoing { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FIBAOutgoing> FIBAOutgoing1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Users> Users1 { get; set; }
+        public virtual Users Users2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Users> Users11 { get; set; }
+        public virtual Users Users3 { get; set; }
     }
 }

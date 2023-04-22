@@ -27,5 +27,11 @@ namespace Reisswolf.Desktop
         public Nullable<int> ModifiedBy { get; set; }
         public bool IsDeleted { get; set; }
         public bool IsActive { get; set; }
+    
+        public virtual Users CreatedByUser { get; set; }
+        public virtual Users ModifiedByUser { get; set; }
+
+        public string CreatedUserName { get => string.Concat(CreatedByUser.FirstName, " ", CreatedByUser.LastName); }
+        public string ModifiedUserName { get => string.Concat(ModifiedByUser.FirstName, " ", ModifiedByUser.LastName); }
     }
 }

@@ -20,14 +20,25 @@ namespace Reisswolf.Desktop
     {
         List<FIBAIncome> incomesData;
         List<string> scannedBarcodes = new List<string>();
+        bool dataFromWaitedDatas = false;
+
         public Dashboard()
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
+            dtIncomeEndDate.Value = dtIncomeStartDate.Value = dtOutGoingStartDate.Value = dtOutGoingEndDate.Value = DateTime.Today.Date;
+
             metroTabControl1.SelectedTab = metroTabControl1.TabPages[0];
+            //if (!CheckWaitedDatas())
             SetData();
 
             txtCourrierNo.Enter += TxtCourrierNo_Enter;
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            base.OnLoad(e);
         }
 
         private void txtBarcode_KeyPress(object sender, KeyPressEventArgs e)
@@ -40,7 +51,7 @@ namespace Reisswolf.Desktop
                 string barcode = txtBarcode.Text;
 
                 if (scannedBarcodes.Contains(barcode))
-                    System.Windows.Forms.MessageBox.Show("Barkod daha önce okutulmuştur. Lütfen listeyi kontrol ediniz.", "Uyarı");
+                    MessageBox.Show("Barkod daha önce okutulmuştur. Lütfen listeyi kontrol ediniz.", "Uyarı");
                 else
                 {
                     var incomeData = incomesData.FirstOrDefault(x => x.DocumentSerialNo == barcode);
@@ -56,6 +67,14 @@ namespace Reisswolf.Desktop
                         {
                             var result = MessageBox.Show("Taranacak kayıtlar mevcuttur.", "Taranacak Kayıt", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Barkod numarası '{barcode}' gelen verilerde bulunamadı!", "Uyarı");
+                        txtBarcode.Text = string.Empty;
+                        txtBarcode.Focus();
+                        e.Handled = true;
+                        return;
                     }
 
                     dataGridScannedBarcodes.Rows.Add(txtCourrierNo.Text, txtArchiveNo.Text, barcode, nationalIdentityNo, companyCode, itWillScanFlag);
@@ -105,6 +124,10 @@ namespace Reisswolf.Desktop
             await GetWaitedDatasAsync();
         }
 
+        private void btnClearFields_Click(object sender, EventArgs e)
+        {
+            ClearData();
+        }
         #endregion
 
         #region Methods
@@ -113,16 +136,42 @@ namespace Reisswolf.Desktop
         {
             dataGridScannedBarcodes.Rows.Clear();
             scannedBarcodes.Clear();
+            txtArchiveNo.Text = txtCourrierNo.Text = string.Empty;
+            dataFromWaitedDatas = false;
 
-            barcodeList.ForEach(x =>
+            if (barcodeList != null)
             {
-                listView1.Items.RemoveByKey(x);
-            });
+                barcodeList.ForEach(x =>
+                {
+                    listView1.Items.RemoveByKey(x);
+                });
+            }
+
+            foreach (ListViewItem item in listView1.Items)
+            {
+                item.BackColor = Color.Transparent;
+            }
+        }
+
+        private bool CheckWaitedDatas()
+        {
+            var outgoingDatas = Core.database.FIBAOutgoing.Where(x => x.Status == (int)EnumOutgoingStatus.Waiting && x.CreatedBy == Core.ActiveUser.ID).ToList();
+            if (outgoingDatas.Count > 0)
+            {
+                MessageBox.Show("Bekleyen kayıtlar mevcut!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                GetWaitedDatasAsync();
+                return true;
+            }
+
+            return false;
         }
 
         private void SetData(bool? addToExistData = false)
         {
-            incomesData = Core.database.FIBAIncome.ToList();
+            incomesData = Core.database.FIBAIncome
+                .Where(p => p.IsSent == false).ToList();
+
+            // Outgoingte Waitingde olanlar
 
             listView1.Items.Clear();
             ColDocumentSerialNo.Width = listView1.Width;
@@ -136,6 +185,8 @@ namespace Reisswolf.Desktop
         {
             var sentTime = DateTime.Now;
             List<string> sentBarcodes = new List<string>();
+            List<FIBAOutgoing> sendedDatas = new List<FIBAOutgoing>();
+            List<FIBAIncome> sendedIncomeDatas = new List<FIBAIncome>();
 
             sendDataProgressBar.Value = 0;
             lblProgressBar.Text = "Servis ile veritabanı bağlantısı kuruluyor.";
@@ -154,7 +205,6 @@ namespace Reisswolf.Desktop
 
             string batchNumber = CreateBatchNumber();
             DocumentFromArchiveModel model = new DocumentFromArchiveModel();
-
 
             foreach (DataGridViewRow row in dataGridScannedBarcodes.Rows)
             {
@@ -197,8 +247,11 @@ namespace Reisswolf.Desktop
                         sendDataProgressBar.Update();
                         var dataCount = responseModel.TABLE != null ? responseModel.TABLE.Count : 0;
                         var index = 1;
+                        List<string> successDatas = new List<string>();
+                        Dictionary<string, string> failDatas = new Dictionary<string, string>();
 
                         if (dataCount > 0)
+                        {
                             foreach (var data in responseModel.TABLE)
                             {
                                 if (data.ResultCode == "0")
@@ -214,25 +267,44 @@ namespace Reisswolf.Desktop
                                         SentTime = sentTime,
                                         IsScanned = true,
                                         Status = (int)EnumOutgoingStatus.Sent,
-                                        NationalIdentityNo = incomeData != null && string.IsNullOrWhiteSpace(incomeData.NationalIdentityNo) ? incomeData.NationalIdentityNo : "",
-                                        CompanyCode = incomeData != null && string.IsNullOrWhiteSpace(incomeData.CompanyCode) ? incomeData.CompanyCode : "",
+                                        NationalIdentityNo = incomeData != null && !string.IsNullOrWhiteSpace(incomeData.NationalIdentityNo) ? incomeData.NationalIdentityNo : "",
+                                        CompanyCode = incomeData != null && !string.IsNullOrWhiteSpace(incomeData.CompanyCode) ? incomeData.CompanyCode : "",
                                         CreatedBy = Core.ActiveUser.ID,
                                         CreatedDate = sentTime,
-                                        IsActive= true,
-                                        IsDeleted= false
+                                        IsActive = true,
+                                        IsDeleted = false
                                     };
 
                                     sendDataProgressBar.Value = 70 + index++ * 100 / (70 + dataCount);
                                     sendDataProgressBar.Update();
+
+                                    incomeData.IsSent = true;
+                                    incomeData.IsSuccessFlag = true;
+
+                                    sendedDatas.Add(sentData);
+                                    sendedIncomeDatas.Add(incomeData);
+                                    successDatas.Add(data.DocumentSerialNo);
+                                }
+                                else
+                                {
+                                    failDatas.Add(data.DocumentSerialNo, data.Message);
                                 }
                             }
+
+                            Core.database.FIBAOutgoing.AddRange(sendedDatas);
+                            Core.database.FIBAIncome.AddOrUpdate(sendedIncomeDatas.ToArray());
+                            await Core.database.SaveChangesAsync();
+                        }
 
                         lblProgressBar.Text = "İşlem tamamlandı!";
                         sendDataProgressBar.Value = 100;
                         sendDataProgressBar.Update();
 
-                        //System.Windows.Forms.MessageBox.Show("Veriler Gönderildi.", "Veri Gönderimi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        MessageBox.Show("Veriler Gönderildi.", "Veri Gönderimi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (DialogResult.OK == MessageBox.Show("Veriler Gönderildi.", "Veri Gönderimi", MessageBoxButtons.OK, MessageBoxIcon.Information))
+                        {
+                            SendResults sr = new SendResults(successDatas, failDatas);
+                            sr.ShowDialog();
+                        }
 
                         sendDataProgressBar.Visible = lblProgressBar.Visible = false;
 
@@ -293,59 +365,66 @@ namespace Reisswolf.Desktop
             if (dataGridScannedBarcodes.Rows.Count <= 0)
                 return;
 
-            DateTime saveTime = DateTime.Now;
-
-            List<FIBAOutgoing> waitingDatas = new List<FIBAOutgoing>();
-            List<string> waitingDataString = new List<string>();
-
-            foreach (DataGridViewRow row in dataGridScannedBarcodes.Rows)
+            if (!dataFromWaitedDatas)
             {
-                var barcodeCourierArchive = row.Cells["ScannedBarcodeCourierArchive"].Value.ToString() ?? "";
-                var documentSerialNo = row.Cells["ScannedDocumentSerialNo"].Value.ToString() ?? "";
-                var companyCode = row.Cells["ScannedCompanyCode"].Value.ToString() ?? "";
-                var nationalIdentityNo = row.Cells["ScannedNationalIdentityNo"].Value.ToString() ?? "";
-                var archiveNo = row.Cells["ScannedArchiveNo"].Value.ToString() ?? "";
-                var isScanned = Convert.ToBoolean(row.Cells["ScannedItWillScanFlag"].Value);
+                DateTime saveTime = DateTime.Now;
 
-                waitingDataString.Add(documentSerialNo);
+                List<FIBAOutgoing> waitingDatas = new List<FIBAOutgoing>();
+                List<string> waitingDataString = new List<string>();
 
-                FIBAOutgoing outgoingData = new FIBAOutgoing()
+                foreach (DataGridViewRow row in dataGridScannedBarcodes.Rows)
                 {
-                    BarcodeCourrierArchiveNo = barcodeCourierArchive,
-                    DocumentSerialNo = documentSerialNo,
-                    CompanyCode = companyCode,
-                    NationalIdentityNo = nationalIdentityNo,
-                    ParcelCodeArchiveNo = archiveNo,
-                    IsScanned = isScanned,
-                    Status = (int)EnumOutgoingStatus.Waiting,
-                    CreatedBy = Core.ActiveUser.ID,
-                    CreatedDate = saveTime,
-                    IsActive = true,
-                    IsDeleted = false
-                };
+                    var barcodeCourierArchive = row.Cells["ScannedBarcodeCourierArchive"].Value.ToString() ?? "";
+                    var documentSerialNo = row.Cells["ScannedDocumentSerialNo"].Value.ToString() ?? "";
+                    var companyCode = row.Cells["ScannedCompanyCode"].Value.ToString() ?? "";
+                    var nationalIdentityNo = row.Cells["ScannedNationalIdentityNo"].Value.ToString() ?? "";
+                    var archiveNo = row.Cells["ScannedArchiveNo"].Value.ToString() ?? "";
+                    var isScanned = Convert.ToBoolean(row.Cells["ScannedItWillScanFlag"].Value);
 
-                waitingDatas.Add(outgoingData);
+                    waitingDataString.Add(documentSerialNo);
+
+                    FIBAOutgoing outgoingData = new FIBAOutgoing()
+                    {
+                        BarcodeCourrierArchiveNo = barcodeCourierArchive,
+                        DocumentSerialNo = documentSerialNo,
+                        CompanyCode = companyCode,
+                        NationalIdentityNo = nationalIdentityNo,
+                        ParcelCodeArchiveNo = archiveNo,
+                        IsScanned = isScanned,
+                        Status = (int)EnumOutgoingStatus.Waiting,
+                        CreatedBy = Core.ActiveUser.ID,
+                        CreatedDate = saveTime,
+                        IsActive = true,
+                        IsDeleted = false
+                    };
+
+                    waitingDatas.Add(outgoingData);
+                }
+
+                List<FIBAIncome> incomingDatas = new List<FIBAIncome>();
+
+                incomingDatas = incomesData.Where(x => waitingDataString.Contains(x.DocumentSerialNo)).ToList();
+
+                foreach (var incomeData in incomingDatas)
+                {
+                    incomeData.IsSent = false;
+                    incomeData.ModifyDate = DateTime.Now;
+                    Core.database.FIBAIncome.AddOrUpdate(incomeData);
+                }
+                Core.database.FIBAOutgoing.AddRange(waitingDatas);
+
+                try
+                {
+                    await Core.database.SaveChangesAsync();
+
+                    ClearData(waitingDataString);
+                }
+                catch (Exception)
+                {
+
+                }
             }
-
-            List<FIBAIncome> incomingDatas = new List<FIBAIncome>();
-
-            incomingDatas = incomesData.Where(x => waitingDataString.Contains(x.DocumentSerialNo)).ToList();
-
-            foreach (var incomeData in incomingDatas)
-            {
-                incomeData.IsSent = false;
-                incomeData.ModifyDate = DateTime.Now;
-                Core.database.FIBAIncome.AddOrUpdate(incomeData);
-            }
-            Core.database.FIBAOutgoing.AddRange(waitingDatas);
-
-            try
-            {
-                await Core.database.SaveChangesAsync();
-
-                ClearData(waitingDataString);
-            }
-            catch (Exception)
+            else
             {
 
             }
@@ -353,8 +432,8 @@ namespace Reisswolf.Desktop
 
         private async Task GetWaitedDatasAsync()
         {
-            var incomeDatas = await Core.database.FIBAIncome.Where(x => x.IsSent == false).ToListAsync();
-            var outgoingDatas = await Core.database.FIBAOutgoing.Where(x => x.Status == (int)EnumOutgoingStatus.Waiting).ToListAsync();
+            incomesData = await Core.database.FIBAIncome.Where(x => x.IsSent == false).ToListAsync();
+            var outgoingDatas = await Core.database.FIBAOutgoing.Where(x => x.Status == (int)EnumOutgoingStatus.Waiting && x.CreatedBy == Core.ActiveUser.ID).ToListAsync();
             List<string> listedItems = new List<string>();
             dataGridScannedBarcodes.Rows.Clear();
 
@@ -363,9 +442,9 @@ namespace Reisswolf.Desktop
                 listedItems.Add(listViewItem.Text.ToString());
             }
 
-            incomeDatas = incomeDatas.Where(x => !listedItems.Any(s => s == x.DocumentSerialNo)).ToList();
+            incomesData = incomesData.Where(x => !listedItems.Any(s => s == x.DocumentSerialNo)).ToList();
 
-            foreach (var incomeData in incomeDatas)
+            foreach (var incomeData in incomesData)
                 listView1.Items.Add(incomeData.DocumentSerialNo, incomeData.DocumentSerialNo, "");
 
             foreach (var outgoingData in outgoingDatas)
@@ -385,59 +464,80 @@ namespace Reisswolf.Desktop
                     listViewItem.BackColor = Color.GreenYellow;
                 }
 
-                dataGridScannedBarcodes.Rows.Add(outgoingData.BarcodeCourrierArchiveNo, outgoingData.BarcodeCourrierArchiveNo, outgoingData.DocumentSerialNo, outgoingData.NationalIdentityNo, outgoingData.CompanyCode, outgoingData.IsScanned);
+                dataGridScannedBarcodes.Rows.Add(outgoingData.BarcodeCourrierArchiveNo, outgoingData.ParcelCodeArchiveNo, outgoingData.DocumentSerialNo, outgoingData.NationalIdentityNo, outgoingData.CompanyCode, outgoingData.IsScanned);
                 scannedBarcodes.Add(outgoingData.DocumentSerialNo);
-
             }
+
+            txtCourrierNo.Text = outgoingDatas.FirstOrDefault().BarcodeCourrierArchiveNo;
+            txtArchiveNo.Text = outgoingDatas.FirstOrDefault().ParcelCodeArchiveNo;
+
+            dataFromWaitedDatas = true;
         }
 
         #endregion
 
         #region Report
 
-        private void btnReportWithFilter_Click(object sender, EventArgs e)
+        private void btnReportOutgoingData_Click(object sender, EventArgs e)
         {
-            ReportWithFilter();
+            FilterForOutgoingData();
+        }
+
+        private void btnReportIncomeData_Click(object sender, EventArgs e)
+        {
+            FilterForIncomeData();
         }
 
         private void btnSentDataExportToExcel_Click(object sender, EventArgs e)
         {
-            ExportToExcel(dataGridScannedBarcodes, "Gönderilenler");
+            ExportToExcel(dataGridSentReport, "Gönderilenler");
         }
 
-        private void ReportWithFilter()
+        private void FilterForOutgoingData()
         {
-            var predicate = PredicateBuilder.True<FIBAOutgoing>();
+            dataGridSentReport.DataSource = Core.database.FIBAOutgoing
+                 .WhereIf(!string.IsNullOrWhiteSpace(txtReportArchiveNo.Text), x => x.ParcelCodeArchiveNo == txtReportArchiveNo.Text)
+                 .WhereIf(!string.IsNullOrWhiteSpace(txtRprOutGoingDocSerialNo.Text), x => x.DocumentSerialNo == txtRprOutGoingDocSerialNo.Text)
+                 .WhereIf(!string.IsNullOrWhiteSpace(txtReportCourrierNo.Text), x => x.BarcodeCourrierArchiveNo == txtReportCourrierNo.Text)
+                 .WhereIf(!string.IsNullOrWhiteSpace(txtRprOutgoingNationalIdNo.Text), x => x.NationalIdentityNo == txtRprOutgoingNationalIdNo.Text)
+                 .WhereIf(!string.IsNullOrWhiteSpace(txtRprOutgoingCompanyCode.Text), x => x.CompanyCode == txtRprOutgoingCompanyCode.Text)
+                 .WhereIf(!string.IsNullOrWhiteSpace(txtReportBatchNo.Text), x => x.BatchNumber == txtReportBatchNo.Text)
+                 .WhereIf(cmbOutStatus.SelectedIndex > 0, x => x.Status == cmbOutStatus.SelectedIndex - 1)
+                 .WhereIf(chkIncludeOutDates.Checked, x => x.CreatedDate >= dtOutGoingStartDate.Value && x.CreatedDate <= dtOutGoingEndDate.Value)
+                 .Where(x => x.CreatedBy == Core.ActiveUser.ID)
+                 .ToList();
+        }
 
-            if (!string.IsNullOrWhiteSpace(txtReportArchiveNo.Text))
-                predicate.And(x => x.ParcelCodeArchiveNo == txtReportArchiveNo.Text);
+        private void FilterForIncomeData()
+        {
+            dataGridIncomeReport.DataSource = Core.database.FIBAIncome
+                 .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeDocSerialNo.Text), x => x.DocumentSerialNo == txtRprIncomeDocSerialNo.Text)
+                 .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeCompanyCode.Text), x => x.CompanyCode == txtRprIncomeCompanyCode.Text)
+                 .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeNationalIdNo.Text), x => x.NationalIdentityNo == txtRprIncomeNationalIdNo.Text)
+                 .WhereIf(chkIncludeOutDates.Checked, x => x.CreatedDate >= dtIncomeStartDate.Value && x.CreatedDate <= dtIncomeEndDate.Value)
+                 .WhereIf(cmbIncomeSuccessStatus.SelectedIndex == 1, x => x.IsSuccessFlag == true)
+                 .WhereIf(cmbIncomeSuccessStatus.SelectedIndex == 2, x => x.IsSuccessFlag == false)
+                 .WhereIf(cmbIncomeSendFlag.SelectedIndex == 1, x => x.IsSent == true)
+                 .WhereIf(cmbIncomeSendFlag.SelectedIndex == 2, x => x.IsSent == false)
+                 .ToList();
+        }
 
-            if (string.IsNullOrWhiteSpace(txtReportBarcode.Text))
-                predicate.And(x => x.DocumentSerialNo == txtReportBarcode.Text);
-
-            if (string.IsNullOrWhiteSpace(txtReportCourrierNo.Text))
-                predicate.And(x => x.BarcodeCourrierArchiveNo == txtReportCourrierNo.Text);
-
-            if (string.IsNullOrWhiteSpace(txtReportNationalIdNo.Text))
-                predicate.And(x => x.NationalIdentityNo == txtReportNationalIdNo.Text);
-
-            if (string.IsNullOrWhiteSpace(txtReportBatchNo.Text))
-                predicate.And(x => x.BatchNumber == txtReportBatchNo.Text);
-
-            var data = Core.database.FIBAOutgoing
-                .Where(predicate)
-                .ToList();
+        private void btnIncomeDataExportToExcel_Click(object sender, EventArgs e)
+        {
+            ExportToExcel(dataGridIncomeReport, "Gelenler");
         }
 
         private void ExportToExcel(DataGridView dataGridView, string fileName)
         {
             Excel.Application excel = new Excel.Application();
 
-            excel.Visible = true;
+            //excel.Visible = true;
 
             Excel.Workbook workbook = excel.Workbooks.Add(System.Reflection.Missing.Value);
 
             Excel.Worksheet sheet1 = (Excel.Worksheet)workbook.Sheets[1];
+            Excel.Range cells = sheet1.Cells;
+            cells.NumberFormat = "@";
 
             for (int i = 0; i < dataGridView.Columns.Count; i++)
             {
@@ -448,13 +548,15 @@ namespace Reisswolf.Desktop
             {
                 for (int j = 0; j < dataGridView.Columns.Count; j++)
                 {
-                    sheet1.Cells[i + 2, j + 1] = dataGridView.Rows[i].Cells[j].Value.ToString();
+                    sheet1.Cells[i + 2, j + 1] = dataGridView.Rows[i].Cells[j].Value != null ? dataGridView.Rows[i].Cells[j].Value.ToString() : "";
                 }
             }
 
             var saveFileDialoge = new SaveFileDialog();
             saveFileDialoge.FileName = fileName;
             saveFileDialoge.DefaultExt = ".xlsx";
+
+            excel.DisplayAlerts = false;
 
             if (saveFileDialoge.ShowDialog() == DialogResult.OK)
             {

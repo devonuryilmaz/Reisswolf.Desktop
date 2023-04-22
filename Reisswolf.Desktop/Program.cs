@@ -10,6 +10,8 @@ namespace Reisswolf.Desktop
 {
     internal static class Program
     {
+        public static bool ValidLogin = false;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -22,6 +24,11 @@ namespace Reisswolf.Desktop
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
+
+            if (ValidLogin)
+            {
+                Application.Run(new Dashboard());
+            }
         }
     }
 }

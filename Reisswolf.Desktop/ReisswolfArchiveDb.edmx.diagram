@@ -8,6 +8,12 @@
         <EntityTypeShape EntityType="Reisswolf_ArchiveModel.FIBAIncome" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Reisswolf_ArchiveModel.FIBAOutgoing" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Reisswolf_ArchiveModel.Users" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Reisswolf_ArchiveModel.FK_FIBAIncome_Users_CreatedBy" />
+        <AssociationConnector Association="Reisswolf_ArchiveModel.FK_FIBAIncome_Users_ModifiedBy" />
+        <AssociationConnector Association="Reisswolf_ArchiveModel.FK_FIBAOutgoing_Users_CreatedBy" />
+        <AssociationConnector Association="Reisswolf_ArchiveModel.FK_FIBAOutgoing_Users_ModifiedBy" />
+        <AssociationConnector Association="Reisswolf_ArchiveModel.FK_Users_Users_CreatedBy" />
+        <AssociationConnector Association="Reisswolf_ArchiveModel.FK_Users_Users_ModifiedBy" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

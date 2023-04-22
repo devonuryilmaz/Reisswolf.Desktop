@@ -31,9 +31,8 @@ namespace Reisswolf.Desktop
             {
                 Core.ActiveUser = user;
 
-                Dashboard d = new Dashboard();
-                this.Hide();
-                d.Show();
+                Program.ValidLogin = true;
+                this.Close();
             }
             else
             {

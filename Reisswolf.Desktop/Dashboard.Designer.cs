@@ -60,70 +60,77 @@
             this.txtBarcode = new MetroFramework.Controls.MetroTextBox();
             this.tabIncomeData = new MetroFramework.Controls.MetroTabPage();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
+            this.txtRprIncomeCompanyCode = new MetroFramework.Controls.MetroTextBox();
+            this.chkIncludeIncomeDates = new MetroFramework.Controls.MetroCheckBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.metroDateTime3 = new MetroFramework.Controls.MetroDateTime();
-            this.metroDateTime4 = new MetroFramework.Controls.MetroDateTime();
-            this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
-            this.metroButton2 = new MetroFramework.Controls.MetroButton();
-            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
+            this.dtIncomeEndDate = new MetroFramework.Controls.MetroDateTime();
+            this.dtIncomeStartDate = new MetroFramework.Controls.MetroDateTime();
+            this.btnReportIncomeData = new MetroFramework.Controls.MetroButton();
             this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBox2 = new MetroFramework.Controls.MetroTextBox();
+            this.txtRprIncomeNationalIdNo = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBox3 = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBox4 = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
-            this.metroButton3 = new MetroFramework.Controls.MetroButton();
-            this.metroTextBox5 = new MetroFramework.Controls.MetroTextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fIBAIncomeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtRprIncomeDocSerialNo = new MetroFramework.Controls.MetroTextBox();
+            this.btnIncomeDataExportToExcel = new MetroFramework.Controls.MetroButton();
+            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
+            this.dataGridIncomeReport = new System.Windows.Forms.DataGridView();
             this.tabSentData = new MetroFramework.Controls.MetroTabPage();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
-            this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
-            this.metroDateTime2 = new MetroFramework.Controls.MetroDateTime();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.txtRprOutgoingCompanyCode = new MetroFramework.Controls.MetroTextBox();
+            this.chkIncludeOutDates = new MetroFramework.Controls.MetroCheckBox();
+            this.dtOutGoingEndDate = new MetroFramework.Controls.MetroDateTime();
+            this.dtOutGoingStartDate = new MetroFramework.Controls.MetroDateTime();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
+            this.cmbOutStatus = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.btnReportWithFilter = new MetroFramework.Controls.MetroButton();
+            this.btnReportOutgoingData = new MetroFramework.Controls.MetroButton();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
             this.txtReportBatchNo = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
-            this.txtReportNationalIdNo = new MetroFramework.Controls.MetroTextBox();
+            this.txtRprOutgoingNationalIdNo = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
-            this.txtReportBarcode = new MetroFramework.Controls.MetroTextBox();
+            this.txtRprOutGoingDocSerialNo = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.txtReportArchiveNo = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.btnSentDataExportToExcel = new MetroFramework.Controls.MetroButton();
             this.txtReportCourrierNo = new MetroFramework.Controls.MetroTextBox();
-            this.dataGridReport = new System.Windows.Forms.DataGridView();
-            this.ıDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridSentReport = new System.Windows.Forms.DataGridView();
+            this.cmbIncomeSendFlag = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
+            this.cmbIncomeSuccessStatus = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
+            this.btnClearFields = new MetroFramework.Controls.MetroButton();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fIBAIncomeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ısScannedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.barcodeCourrierArchiveNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parcelCodeArchiveNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.documentSerialNoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nationalIdentityNoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyCodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.barcodeCourrierArchiveNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.parcelCodeArchiveNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.batchNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sentTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fIBAOutgoingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedByUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModifiedUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModifyDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItWillScanFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.metroTabControl1.SuspendLayout();
             this.tabMofMovements.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridScannedBarcodes)).BeginInit();
             this.tabIncomeData.SuspendLayout();
             this.metroPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fIBAIncomeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridIncomeReport)).BeginInit();
             this.tabSentData.SuspendLayout();
             this.metroPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridSentReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fIBAIncomeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fIBAOutgoingBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,13 +142,14 @@
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(20, 60);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(1084, 676);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
             // 
             // tabMofMovements
             // 
+            this.tabMofMovements.Controls.Add(this.btnClearFields);
             this.tabMofMovements.Controls.Add(this.lblProgressBar);
             this.tabMofMovements.Controls.Add(this.sendDataProgressBar);
             this.tabMofMovements.Controls.Add(this.btnGetSavedData);
@@ -473,7 +481,7 @@
             // tabIncomeData
             // 
             this.tabIncomeData.Controls.Add(this.metroPanel2);
-            this.tabIncomeData.Controls.Add(this.dataGridView1);
+            this.tabIncomeData.Controls.Add(this.dataGridIncomeReport);
             this.tabIncomeData.HorizontalScrollbarBarColor = true;
             this.tabIncomeData.HorizontalScrollbarHighlightOnWheel = false;
             this.tabIncomeData.HorizontalScrollbarSize = 10;
@@ -490,23 +498,22 @@
             // 
             this.metroPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroPanel2.Controls.Add(this.metroLabel5);
-            this.metroPanel2.Controls.Add(this.metroDateTime3);
-            this.metroPanel2.Controls.Add(this.metroDateTime4);
-            this.metroPanel2.Controls.Add(this.metroComboBox2);
-            this.metroPanel2.Controls.Add(this.metroLabel13);
-            this.metroPanel2.Controls.Add(this.metroButton2);
-            this.metroPanel2.Controls.Add(this.metroLabel14);
-            this.metroPanel2.Controls.Add(this.metroTextBox1);
-            this.metroPanel2.Controls.Add(this.metroLabel15);
-            this.metroPanel2.Controls.Add(this.metroTextBox2);
-            this.metroPanel2.Controls.Add(this.metroLabel16);
-            this.metroPanel2.Controls.Add(this.metroTextBox3);
-            this.metroPanel2.Controls.Add(this.metroLabel17);
-            this.metroPanel2.Controls.Add(this.metroTextBox4);
+            this.metroPanel2.Controls.Add(this.cmbIncomeSuccessStatus);
             this.metroPanel2.Controls.Add(this.metroLabel18);
-            this.metroPanel2.Controls.Add(this.metroButton3);
-            this.metroPanel2.Controls.Add(this.metroTextBox5);
+            this.metroPanel2.Controls.Add(this.cmbIncomeSendFlag);
+            this.metroPanel2.Controls.Add(this.metroLabel17);
+            this.metroPanel2.Controls.Add(this.txtRprIncomeCompanyCode);
+            this.metroPanel2.Controls.Add(this.chkIncludeIncomeDates);
+            this.metroPanel2.Controls.Add(this.metroLabel5);
+            this.metroPanel2.Controls.Add(this.dtIncomeEndDate);
+            this.metroPanel2.Controls.Add(this.dtIncomeStartDate);
+            this.metroPanel2.Controls.Add(this.btnReportIncomeData);
+            this.metroPanel2.Controls.Add(this.metroLabel15);
+            this.metroPanel2.Controls.Add(this.txtRprIncomeNationalIdNo);
+            this.metroPanel2.Controls.Add(this.metroLabel16);
+            this.metroPanel2.Controls.Add(this.txtRprIncomeDocSerialNo);
+            this.metroPanel2.Controls.Add(this.btnIncomeDataExportToExcel);
+            this.metroPanel2.Controls.Add(this.metroLabel14);
             this.metroPanel2.HorizontalScrollbarBarColor = true;
             this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel2.HorizontalScrollbarSize = 10;
@@ -518,344 +525,221 @@
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel2.VerticalScrollbarSize = 10;
             // 
+            // txtRprIncomeCompanyCode
+            // 
+            // 
+            // 
+            // 
+            this.txtRprIncomeCompanyCode.CustomButton.Image = null;
+            this.txtRprIncomeCompanyCode.CustomButton.Location = new System.Drawing.Point(104, 1);
+            this.txtRprIncomeCompanyCode.CustomButton.Name = "";
+            this.txtRprIncomeCompanyCode.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtRprIncomeCompanyCode.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtRprIncomeCompanyCode.CustomButton.TabIndex = 1;
+            this.txtRprIncomeCompanyCode.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtRprIncomeCompanyCode.CustomButton.UseSelectable = true;
+            this.txtRprIncomeCompanyCode.CustomButton.Visible = false;
+            this.txtRprIncomeCompanyCode.Lines = new string[0];
+            this.txtRprIncomeCompanyCode.Location = new System.Drawing.Point(349, 3);
+            this.txtRprIncomeCompanyCode.MaxLength = 32767;
+            this.txtRprIncomeCompanyCode.Name = "txtRprIncomeCompanyCode";
+            this.txtRprIncomeCompanyCode.PasswordChar = '\0';
+            this.txtRprIncomeCompanyCode.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtRprIncomeCompanyCode.SelectedText = "";
+            this.txtRprIncomeCompanyCode.SelectionLength = 0;
+            this.txtRprIncomeCompanyCode.SelectionStart = 0;
+            this.txtRprIncomeCompanyCode.ShortcutsEnabled = true;
+            this.txtRprIncomeCompanyCode.Size = new System.Drawing.Size(126, 23);
+            this.txtRprIncomeCompanyCode.TabIndex = 35;
+            this.txtRprIncomeCompanyCode.UseSelectable = true;
+            this.txtRprIncomeCompanyCode.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtRprIncomeCompanyCode.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // chkIncludeIncomeDates
+            // 
+            this.chkIncludeIncomeDates.AutoSize = true;
+            this.chkIncludeIncomeDates.Location = new System.Drawing.Point(481, 68);
+            this.chkIncludeIncomeDates.Name = "chkIncludeIncomeDates";
+            this.chkIncludeIncomeDates.Size = new System.Drawing.Size(148, 15);
+            this.chkIncludeIncomeDates.TabIndex = 34;
+            this.chkIncludeIncomeDates.Text = "Tarihleri Filtreye Dahil Et";
+            this.chkIncludeIncomeDates.UseSelectable = true;
+            // 
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(3, 62);
+            this.metroLabel5.Location = new System.Drawing.Point(3, 64);
             this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(84, 19);
-            this.metroLabel5.TabIndex = 30;
-            this.metroLabel5.Text = "Arşiv Koli No";
+            this.metroLabel5.Size = new System.Drawing.Size(104, 19);
+            this.metroLabel5.TabIndex = 31;
+            this.metroLabel5.Text = "Oluşturma Tarihi";
             // 
-            // metroDateTime3
+            // dtIncomeEndDate
             // 
-            this.metroDateTime3.CustomFormat = "dd-MM-yyyy HH:mm";
-            this.metroDateTime3.FontSize = MetroFramework.MetroDateTimeSize.Small;
-            this.metroDateTime3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.metroDateTime3.Location = new System.Drawing.Point(298, 62);
-            this.metroDateTime3.MaxDate = new System.DateTime(2029, 12, 31, 0, 0, 0, 0);
-            this.metroDateTime3.MinDate = new System.DateTime(2009, 12, 31, 0, 0, 0, 0);
-            this.metroDateTime3.MinimumSize = new System.Drawing.Size(4, 25);
-            this.metroDateTime3.Name = "metroDateTime3";
-            this.metroDateTime3.Size = new System.Drawing.Size(173, 25);
-            this.metroDateTime3.TabIndex = 29;
-            this.metroDateTime3.Value = new System.DateTime(2023, 3, 16, 14, 21, 58, 0);
+            this.dtIncomeEndDate.CustomFormat = "dd-MM-yyyy HH:mm";
+            this.dtIncomeEndDate.FontSize = MetroFramework.MetroDateTimeSize.Small;
+            this.dtIncomeEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtIncomeEndDate.Location = new System.Drawing.Point(298, 62);
+            this.dtIncomeEndDate.MaxDate = new System.DateTime(2029, 12, 31, 0, 0, 0, 0);
+            this.dtIncomeEndDate.MinDate = new System.DateTime(2009, 12, 31, 0, 0, 0, 0);
+            this.dtIncomeEndDate.MinimumSize = new System.Drawing.Size(0, 25);
+            this.dtIncomeEndDate.Name = "dtIncomeEndDate";
+            this.dtIncomeEndDate.Size = new System.Drawing.Size(177, 25);
+            this.dtIncomeEndDate.TabIndex = 29;
+            this.dtIncomeEndDate.Value = new System.DateTime(2023, 4, 21, 0, 0, 0, 0);
             // 
-            // metroDateTime4
+            // dtIncomeStartDate
             // 
-            this.metroDateTime4.CustomFormat = "dd-MM-yyyy HH:mm";
-            this.metroDateTime4.FontSize = MetroFramework.MetroDateTimeSize.Small;
-            this.metroDateTime4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.metroDateTime4.Location = new System.Drawing.Point(119, 62);
-            this.metroDateTime4.MaxDate = new System.DateTime(2029, 12, 31, 0, 0, 0, 0);
-            this.metroDateTime4.MinDate = new System.DateTime(2009, 12, 31, 0, 0, 0, 0);
-            this.metroDateTime4.MinimumSize = new System.Drawing.Size(4, 25);
-            this.metroDateTime4.Name = "metroDateTime4";
-            this.metroDateTime4.Size = new System.Drawing.Size(173, 25);
-            this.metroDateTime4.TabIndex = 28;
-            this.metroDateTime4.Value = new System.DateTime(2023, 3, 16, 14, 21, 52, 0);
+            this.dtIncomeStartDate.CustomFormat = "dd-MM-yyyy HH:mm";
+            this.dtIncomeStartDate.FontSize = MetroFramework.MetroDateTimeSize.Small;
+            this.dtIncomeStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtIncomeStartDate.Location = new System.Drawing.Point(119, 62);
+            this.dtIncomeStartDate.MaxDate = new System.DateTime(2029, 12, 31, 0, 0, 0, 0);
+            this.dtIncomeStartDate.MinDate = new System.DateTime(2009, 12, 31, 0, 0, 0, 0);
+            this.dtIncomeStartDate.MinimumSize = new System.Drawing.Size(0, 25);
+            this.dtIncomeStartDate.Name = "dtIncomeStartDate";
+            this.dtIncomeStartDate.Size = new System.Drawing.Size(173, 25);
+            this.dtIncomeStartDate.TabIndex = 28;
+            this.dtIncomeStartDate.Value = new System.DateTime(2023, 4, 21, 0, 0, 0, 0);
             // 
-            // metroComboBox2
+            // btnReportIncomeData
             // 
-            this.metroComboBox2.FontSize = MetroFramework.MetroComboBoxSize.Small;
-            this.metroComboBox2.FormattingEnabled = true;
-            this.metroComboBox2.ItemHeight = 19;
-            this.metroComboBox2.Items.AddRange(new object[] {
-            "Hepsi",
-            "Bekleyen",
-            "Gönderilen"});
-            this.metroComboBox2.Location = new System.Drawing.Point(565, 32);
-            this.metroComboBox2.Name = "metroComboBox2";
-            this.metroComboBox2.Size = new System.Drawing.Size(126, 25);
-            this.metroComboBox2.TabIndex = 27;
-            this.metroComboBox2.UseSelectable = true;
-            // 
-            // metroLabel13
-            // 
-            this.metroLabel13.AutoSize = true;
-            this.metroLabel13.Location = new System.Drawing.Point(481, 32);
-            this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(49, 19);
-            this.metroLabel13.TabIndex = 26;
-            this.metroLabel13.Text = "Durum";
-            // 
-            // metroButton2
-            // 
-            this.metroButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroButton2.Location = new System.Drawing.Point(754, 3);
-            this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(155, 48);
-            this.metroButton2.TabIndex = 25;
-            this.metroButton2.Text = "Filtrele";
-            this.metroButton2.UseSelectable = true;
-            // 
-            // metroLabel14
-            // 
-            this.metroLabel14.AutoSize = true;
-            this.metroLabel14.Location = new System.Drawing.Point(481, 3);
-            this.metroLabel14.Name = "metroLabel14";
-            this.metroLabel14.Size = new System.Drawing.Size(78, 19);
-            this.metroLabel14.TabIndex = 24;
-            this.metroLabel14.Text = "Gönderi No";
-            // 
-            // metroTextBox1
-            // 
-            // 
-            // 
-            // 
-            this.metroTextBox1.CustomButton.Image = null;
-            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(104, 1);
-            this.metroTextBox1.CustomButton.Name = "";
-            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox1.CustomButton.TabIndex = 1;
-            this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox1.CustomButton.UseSelectable = true;
-            this.metroTextBox1.CustomButton.Visible = false;
-            this.metroTextBox1.Lines = new string[0];
-            this.metroTextBox1.Location = new System.Drawing.Point(565, 3);
-            this.metroTextBox1.MaxLength = 32767;
-            this.metroTextBox1.Name = "metroTextBox1";
-            this.metroTextBox1.PasswordChar = '\0';
-            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox1.SelectedText = "";
-            this.metroTextBox1.SelectionLength = 0;
-            this.metroTextBox1.SelectionStart = 0;
-            this.metroTextBox1.ShortcutsEnabled = true;
-            this.metroTextBox1.Size = new System.Drawing.Size(126, 23);
-            this.metroTextBox1.TabIndex = 23;
-            this.metroTextBox1.UseSelectable = true;
-            this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.btnReportIncomeData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReportIncomeData.Location = new System.Drawing.Point(754, 3);
+            this.btnReportIncomeData.Name = "btnReportIncomeData";
+            this.btnReportIncomeData.Size = new System.Drawing.Size(155, 48);
+            this.btnReportIncomeData.TabIndex = 25;
+            this.btnReportIncomeData.Text = "Filtrele";
+            this.btnReportIncomeData.UseSelectable = true;
+            this.btnReportIncomeData.Click += new System.EventHandler(this.btnReportIncomeData_Click);
             // 
             // metroLabel15
             // 
             this.metroLabel15.AutoSize = true;
-            this.metroLabel15.Location = new System.Drawing.Point(251, 32);
+            this.metroLabel15.Location = new System.Drawing.Point(3, 32);
             this.metroLabel15.Name = "metroLabel15";
             this.metroLabel15.Size = new System.Drawing.Size(41, 19);
             this.metroLabel15.TabIndex = 22;
             this.metroLabel15.Text = "TCKN";
             // 
-            // metroTextBox2
+            // txtRprIncomeNationalIdNo
             // 
             // 
             // 
             // 
-            this.metroTextBox2.CustomButton.Image = null;
-            this.metroTextBox2.CustomButton.Location = new System.Drawing.Point(104, 1);
-            this.metroTextBox2.CustomButton.Name = "";
-            this.metroTextBox2.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBox2.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox2.CustomButton.TabIndex = 1;
-            this.metroTextBox2.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox2.CustomButton.UseSelectable = true;
-            this.metroTextBox2.CustomButton.Visible = false;
-            this.metroTextBox2.Lines = new string[0];
-            this.metroTextBox2.Location = new System.Drawing.Point(349, 32);
-            this.metroTextBox2.MaxLength = 32767;
-            this.metroTextBox2.Name = "metroTextBox2";
-            this.metroTextBox2.PasswordChar = '\0';
-            this.metroTextBox2.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox2.SelectedText = "";
-            this.metroTextBox2.SelectionLength = 0;
-            this.metroTextBox2.SelectionStart = 0;
-            this.metroTextBox2.ShortcutsEnabled = true;
-            this.metroTextBox2.Size = new System.Drawing.Size(126, 23);
-            this.metroTextBox2.TabIndex = 21;
-            this.metroTextBox2.UseSelectable = true;
-            this.metroTextBox2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtRprIncomeNationalIdNo.CustomButton.Image = null;
+            this.txtRprIncomeNationalIdNo.CustomButton.Location = new System.Drawing.Point(104, 1);
+            this.txtRprIncomeNationalIdNo.CustomButton.Name = "";
+            this.txtRprIncomeNationalIdNo.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtRprIncomeNationalIdNo.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtRprIncomeNationalIdNo.CustomButton.TabIndex = 1;
+            this.txtRprIncomeNationalIdNo.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtRprIncomeNationalIdNo.CustomButton.UseSelectable = true;
+            this.txtRprIncomeNationalIdNo.CustomButton.Visible = false;
+            this.txtRprIncomeNationalIdNo.Lines = new string[0];
+            this.txtRprIncomeNationalIdNo.Location = new System.Drawing.Point(119, 32);
+            this.txtRprIncomeNationalIdNo.MaxLength = 32767;
+            this.txtRprIncomeNationalIdNo.Name = "txtRprIncomeNationalIdNo";
+            this.txtRprIncomeNationalIdNo.PasswordChar = '\0';
+            this.txtRprIncomeNationalIdNo.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtRprIncomeNationalIdNo.SelectedText = "";
+            this.txtRprIncomeNationalIdNo.SelectionLength = 0;
+            this.txtRprIncomeNationalIdNo.SelectionStart = 0;
+            this.txtRprIncomeNationalIdNo.ShortcutsEnabled = true;
+            this.txtRprIncomeNationalIdNo.Size = new System.Drawing.Size(126, 23);
+            this.txtRprIncomeNationalIdNo.TabIndex = 21;
+            this.txtRprIncomeNationalIdNo.UseSelectable = true;
+            this.txtRprIncomeNationalIdNo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtRprIncomeNationalIdNo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // metroLabel16
             // 
             this.metroLabel16.AutoSize = true;
-            this.metroLabel16.Location = new System.Drawing.Point(251, 3);
+            this.metroLabel16.Location = new System.Drawing.Point(3, 3);
             this.metroLabel16.Name = "metroLabel16";
             this.metroLabel16.Size = new System.Drawing.Size(92, 19);
             this.metroLabel16.TabIndex = 20;
             this.metroLabel16.Text = "MOF Barkodu";
             // 
-            // metroTextBox3
+            // txtRprIncomeDocSerialNo
             // 
             // 
             // 
             // 
-            this.metroTextBox3.CustomButton.Image = null;
-            this.metroTextBox3.CustomButton.Location = new System.Drawing.Point(104, 1);
-            this.metroTextBox3.CustomButton.Name = "";
-            this.metroTextBox3.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBox3.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox3.CustomButton.TabIndex = 1;
-            this.metroTextBox3.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox3.CustomButton.UseSelectable = true;
-            this.metroTextBox3.CustomButton.Visible = false;
-            this.metroTextBox3.Lines = new string[0];
-            this.metroTextBox3.Location = new System.Drawing.Point(349, 3);
-            this.metroTextBox3.MaxLength = 32767;
-            this.metroTextBox3.Name = "metroTextBox3";
-            this.metroTextBox3.PasswordChar = '\0';
-            this.metroTextBox3.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox3.SelectedText = "";
-            this.metroTextBox3.SelectionLength = 0;
-            this.metroTextBox3.SelectionStart = 0;
-            this.metroTextBox3.ShortcutsEnabled = true;
-            this.metroTextBox3.Size = new System.Drawing.Size(126, 23);
-            this.metroTextBox3.TabIndex = 19;
-            this.metroTextBox3.UseSelectable = true;
-            this.metroTextBox3.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox3.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtRprIncomeDocSerialNo.CustomButton.Image = null;
+            this.txtRprIncomeDocSerialNo.CustomButton.Location = new System.Drawing.Point(104, 1);
+            this.txtRprIncomeDocSerialNo.CustomButton.Name = "";
+            this.txtRprIncomeDocSerialNo.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtRprIncomeDocSerialNo.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtRprIncomeDocSerialNo.CustomButton.TabIndex = 1;
+            this.txtRprIncomeDocSerialNo.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtRprIncomeDocSerialNo.CustomButton.UseSelectable = true;
+            this.txtRprIncomeDocSerialNo.CustomButton.Visible = false;
+            this.txtRprIncomeDocSerialNo.Lines = new string[0];
+            this.txtRprIncomeDocSerialNo.Location = new System.Drawing.Point(119, 3);
+            this.txtRprIncomeDocSerialNo.MaxLength = 32767;
+            this.txtRprIncomeDocSerialNo.Name = "txtRprIncomeDocSerialNo";
+            this.txtRprIncomeDocSerialNo.PasswordChar = '\0';
+            this.txtRprIncomeDocSerialNo.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtRprIncomeDocSerialNo.SelectedText = "";
+            this.txtRprIncomeDocSerialNo.SelectionLength = 0;
+            this.txtRprIncomeDocSerialNo.SelectionStart = 0;
+            this.txtRprIncomeDocSerialNo.ShortcutsEnabled = true;
+            this.txtRprIncomeDocSerialNo.Size = new System.Drawing.Size(126, 23);
+            this.txtRprIncomeDocSerialNo.TabIndex = 19;
+            this.txtRprIncomeDocSerialNo.UseSelectable = true;
+            this.txtRprIncomeDocSerialNo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtRprIncomeDocSerialNo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroLabel17
+            // btnIncomeDataExportToExcel
             // 
-            this.metroLabel17.AutoSize = true;
-            this.metroLabel17.Location = new System.Drawing.Point(3, 32);
-            this.metroLabel17.Name = "metroLabel17";
-            this.metroLabel17.Size = new System.Drawing.Size(84, 19);
-            this.metroLabel17.TabIndex = 18;
-            this.metroLabel17.Text = "Arşiv Koli No";
+            this.btnIncomeDataExportToExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnIncomeDataExportToExcel.Location = new System.Drawing.Point(915, 3);
+            this.btnIncomeDataExportToExcel.Name = "btnIncomeDataExportToExcel";
+            this.btnIncomeDataExportToExcel.Size = new System.Drawing.Size(155, 48);
+            this.btnIncomeDataExportToExcel.TabIndex = 12;
+            this.btnIncomeDataExportToExcel.Text = "Excel\'e Çıkart";
+            this.btnIncomeDataExportToExcel.UseSelectable = true;
+            this.btnIncomeDataExportToExcel.Click += new System.EventHandler(this.btnIncomeDataExportToExcel_Click);
             // 
-            // metroTextBox4
+            // metroLabel14
             // 
+            this.metroLabel14.AutoSize = true;
+            this.metroLabel14.Location = new System.Drawing.Point(251, 3);
+            this.metroLabel14.Name = "metroLabel14";
+            this.metroLabel14.Size = new System.Drawing.Size(102, 19);
+            this.metroLabel14.TabIndex = 36;
+            this.metroLabel14.Text = "Company Code";
             // 
+            // dataGridIncomeReport
             // 
-            // 
-            this.metroTextBox4.CustomButton.Image = null;
-            this.metroTextBox4.CustomButton.Location = new System.Drawing.Point(104, 1);
-            this.metroTextBox4.CustomButton.Name = "";
-            this.metroTextBox4.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBox4.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox4.CustomButton.TabIndex = 1;
-            this.metroTextBox4.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox4.CustomButton.UseSelectable = true;
-            this.metroTextBox4.CustomButton.Visible = false;
-            this.metroTextBox4.Lines = new string[0];
-            this.metroTextBox4.Location = new System.Drawing.Point(119, 32);
-            this.metroTextBox4.MaxLength = 32767;
-            this.metroTextBox4.Name = "metroTextBox4";
-            this.metroTextBox4.PasswordChar = '\0';
-            this.metroTextBox4.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox4.SelectedText = "";
-            this.metroTextBox4.SelectionLength = 0;
-            this.metroTextBox4.SelectionStart = 0;
-            this.metroTextBox4.ShortcutsEnabled = true;
-            this.metroTextBox4.Size = new System.Drawing.Size(126, 23);
-            this.metroTextBox4.TabIndex = 17;
-            this.metroTextBox4.UseSelectable = true;
-            this.metroTextBox4.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox4.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel18
-            // 
-            this.metroLabel18.AutoSize = true;
-            this.metroLabel18.Location = new System.Drawing.Point(3, 3);
-            this.metroLabel18.Name = "metroLabel18";
-            this.metroLabel18.Size = new System.Drawing.Size(110, 19);
-            this.metroLabel18.TabIndex = 16;
-            this.metroLabel18.Text = "Kurye Barkod No";
-            // 
-            // metroButton3
-            // 
-            this.metroButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroButton3.Location = new System.Drawing.Point(915, 3);
-            this.metroButton3.Name = "metroButton3";
-            this.metroButton3.Size = new System.Drawing.Size(155, 48);
-            this.metroButton3.TabIndex = 12;
-            this.metroButton3.Text = "Excel\'e Çıkart";
-            this.metroButton3.UseSelectable = true;
-            // 
-            // metroTextBox5
-            // 
-            // 
-            // 
-            // 
-            this.metroTextBox5.CustomButton.Image = null;
-            this.metroTextBox5.CustomButton.Location = new System.Drawing.Point(104, 1);
-            this.metroTextBox5.CustomButton.Name = "";
-            this.metroTextBox5.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBox5.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox5.CustomButton.TabIndex = 1;
-            this.metroTextBox5.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox5.CustomButton.UseSelectable = true;
-            this.metroTextBox5.CustomButton.Visible = false;
-            this.metroTextBox5.Lines = new string[0];
-            this.metroTextBox5.Location = new System.Drawing.Point(119, 3);
-            this.metroTextBox5.MaxLength = 32767;
-            this.metroTextBox5.Name = "metroTextBox5";
-            this.metroTextBox5.PasswordChar = '\0';
-            this.metroTextBox5.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox5.SelectedText = "";
-            this.metroTextBox5.SelectionLength = 0;
-            this.metroTextBox5.SelectionStart = 0;
-            this.metroTextBox5.ShortcutsEnabled = true;
-            this.metroTextBox5.Size = new System.Drawing.Size(126, 23);
-            this.metroTextBox5.TabIndex = 15;
-            this.metroTextBox5.UseSelectable = true;
-            this.metroTextBox5.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox5.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridIncomeReport.AllowUserToAddRows = false;
+            this.dataGridIncomeReport.AllowUserToDeleteRows = false;
+            this.dataGridIncomeReport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
+            this.dataGridIncomeReport.AutoGenerateColumns = false;
+            this.dataGridIncomeReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridIncomeReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.dataGridView1.DataSource = this.fIBAIncomeBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 120);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1073, 518);
-            this.dataGridView1.TabIndex = 14;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.dataGridViewTextBoxColumn1.FillWeight = 50F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "DocumentSerialNo";
-            this.dataGridViewTextBoxColumn2.HeaderText = "DocumentSerialNo";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "NationalIdentityNo";
-            this.dataGridViewTextBoxColumn3.HeaderText = "NationalIdentityNo";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "CompanyCode";
-            this.dataGridViewTextBoxColumn4.HeaderText = "CompanyCode";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // fIBAIncomeBindingSource
-            // 
-            this.fIBAIncomeBindingSource.DataSource = typeof(Reisswolf.Desktop.FIBAIncome);
+            this.dataGridViewTextBoxColumn4,
+            this.CreatedByUser,
+            this.CreatedDate,
+            this.ModifiedUserName,
+            this.ModifyDate,
+            this.ItWillScanFlag});
+            this.dataGridIncomeReport.DataSource = this.fIBAIncomeBindingSource;
+            this.dataGridIncomeReport.Location = new System.Drawing.Point(0, 120);
+            this.dataGridIncomeReport.Name = "dataGridIncomeReport";
+            this.dataGridIncomeReport.ReadOnly = true;
+            this.dataGridIncomeReport.Size = new System.Drawing.Size(1073, 518);
+            this.dataGridIncomeReport.TabIndex = 14;
             // 
             // tabSentData
             // 
             this.tabSentData.Controls.Add(this.metroPanel1);
-            this.tabSentData.Controls.Add(this.dataGridReport);
+            this.tabSentData.Controls.Add(this.dataGridSentReport);
             this.tabSentData.HorizontalScrollbarBarColor = true;
             this.tabSentData.HorizontalScrollbarHighlightOnWheel = false;
             this.tabSentData.HorizontalScrollbarSize = 10;
@@ -872,18 +756,21 @@
             // 
             this.metroPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroPanel1.Controls.Add(this.metroDateTime1);
-            this.metroPanel1.Controls.Add(this.metroDateTime2);
+            this.metroPanel1.Controls.Add(this.metroLabel13);
+            this.metroPanel1.Controls.Add(this.txtRprOutgoingCompanyCode);
+            this.metroPanel1.Controls.Add(this.chkIncludeOutDates);
+            this.metroPanel1.Controls.Add(this.dtOutGoingEndDate);
+            this.metroPanel1.Controls.Add(this.dtOutGoingStartDate);
             this.metroPanel1.Controls.Add(this.metroLabel4);
-            this.metroPanel1.Controls.Add(this.metroComboBox1);
+            this.metroPanel1.Controls.Add(this.cmbOutStatus);
             this.metroPanel1.Controls.Add(this.metroLabel3);
-            this.metroPanel1.Controls.Add(this.btnReportWithFilter);
+            this.metroPanel1.Controls.Add(this.btnReportOutgoingData);
             this.metroPanel1.Controls.Add(this.metroLabel12);
             this.metroPanel1.Controls.Add(this.txtReportBatchNo);
             this.metroPanel1.Controls.Add(this.metroLabel10);
-            this.metroPanel1.Controls.Add(this.txtReportNationalIdNo);
+            this.metroPanel1.Controls.Add(this.txtRprOutgoingNationalIdNo);
             this.metroPanel1.Controls.Add(this.metroLabel11);
-            this.metroPanel1.Controls.Add(this.txtReportBarcode);
+            this.metroPanel1.Controls.Add(this.txtRprOutGoingDocSerialNo);
             this.metroPanel1.Controls.Add(this.metroLabel9);
             this.metroPanel1.Controls.Add(this.txtReportArchiveNo);
             this.metroPanel1.Controls.Add(this.metroLabel7);
@@ -900,81 +787,131 @@
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             // 
-            // metroDateTime1
+            // metroLabel13
             // 
-            this.metroDateTime1.CustomFormat = "dd-MM-yyyy HH:mm";
-            this.metroDateTime1.FontSize = MetroFramework.MetroDateTimeSize.Small;
-            this.metroDateTime1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.metroDateTime1.Location = new System.Drawing.Point(298, 62);
-            this.metroDateTime1.MaxDate = new System.DateTime(2029, 12, 31, 0, 0, 0, 0);
-            this.metroDateTime1.MinDate = new System.DateTime(2009, 12, 31, 0, 0, 0, 0);
-            this.metroDateTime1.MinimumSize = new System.Drawing.Size(4, 25);
-            this.metroDateTime1.Name = "metroDateTime1";
-            this.metroDateTime1.Size = new System.Drawing.Size(173, 25);
-            this.metroDateTime1.TabIndex = 32;
-            this.metroDateTime1.Value = new System.DateTime(2023, 3, 16, 14, 22, 6, 0);
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.Location = new System.Drawing.Point(3, 61);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(102, 19);
+            this.metroLabel13.TabIndex = 35;
+            this.metroLabel13.Text = "Company Code";
             // 
-            // metroDateTime2
+            // txtRprOutgoingCompanyCode
             // 
-            this.metroDateTime2.CustomFormat = "dd-MM-yyyy HH:mm";
-            this.metroDateTime2.FontSize = MetroFramework.MetroDateTimeSize.Small;
-            this.metroDateTime2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.metroDateTime2.Location = new System.Drawing.Point(119, 62);
-            this.metroDateTime2.MaxDate = new System.DateTime(2029, 12, 31, 0, 0, 0, 0);
-            this.metroDateTime2.MinDate = new System.DateTime(2009, 12, 31, 0, 0, 0, 0);
-            this.metroDateTime2.MinimumSize = new System.Drawing.Size(4, 25);
-            this.metroDateTime2.Name = "metroDateTime2";
-            this.metroDateTime2.Size = new System.Drawing.Size(173, 25);
-            this.metroDateTime2.TabIndex = 31;
-            this.metroDateTime2.Value = new System.DateTime(2023, 3, 16, 14, 22, 3, 0);
+            // 
+            // 
+            // 
+            this.txtRprOutgoingCompanyCode.CustomButton.Image = null;
+            this.txtRprOutgoingCompanyCode.CustomButton.Location = new System.Drawing.Point(104, 1);
+            this.txtRprOutgoingCompanyCode.CustomButton.Name = "";
+            this.txtRprOutgoingCompanyCode.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtRprOutgoingCompanyCode.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtRprOutgoingCompanyCode.CustomButton.TabIndex = 1;
+            this.txtRprOutgoingCompanyCode.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtRprOutgoingCompanyCode.CustomButton.UseSelectable = true;
+            this.txtRprOutgoingCompanyCode.CustomButton.Visible = false;
+            this.txtRprOutgoingCompanyCode.Lines = new string[0];
+            this.txtRprOutgoingCompanyCode.Location = new System.Drawing.Point(119, 61);
+            this.txtRprOutgoingCompanyCode.MaxLength = 32767;
+            this.txtRprOutgoingCompanyCode.Name = "txtRprOutgoingCompanyCode";
+            this.txtRprOutgoingCompanyCode.PasswordChar = '\0';
+            this.txtRprOutgoingCompanyCode.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtRprOutgoingCompanyCode.SelectedText = "";
+            this.txtRprOutgoingCompanyCode.SelectionLength = 0;
+            this.txtRprOutgoingCompanyCode.SelectionStart = 0;
+            this.txtRprOutgoingCompanyCode.ShortcutsEnabled = true;
+            this.txtRprOutgoingCompanyCode.Size = new System.Drawing.Size(126, 23);
+            this.txtRprOutgoingCompanyCode.TabIndex = 34;
+            this.txtRprOutgoingCompanyCode.UseSelectable = true;
+            this.txtRprOutgoingCompanyCode.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtRprOutgoingCompanyCode.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // chkIncludeOutDates
+            // 
+            this.chkIncludeOutDates.AutoSize = true;
+            this.chkIncludeOutDates.Location = new System.Drawing.Point(719, 65);
+            this.chkIncludeOutDates.Name = "chkIncludeOutDates";
+            this.chkIncludeOutDates.Size = new System.Drawing.Size(148, 15);
+            this.chkIncludeOutDates.TabIndex = 33;
+            this.chkIncludeOutDates.Text = "Tarihleri Filtreye Dahil Et";
+            this.chkIncludeOutDates.UseSelectable = true;
+            // 
+            // dtOutGoingEndDate
+            // 
+            this.dtOutGoingEndDate.CustomFormat = "dd-MM-yyyy HH:mm";
+            this.dtOutGoingEndDate.FontSize = MetroFramework.MetroDateTimeSize.Small;
+            this.dtOutGoingEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtOutGoingEndDate.Location = new System.Drawing.Point(540, 61);
+            this.dtOutGoingEndDate.MaxDate = new System.DateTime(2029, 12, 31, 0, 0, 0, 0);
+            this.dtOutGoingEndDate.MinDate = new System.DateTime(2009, 12, 31, 0, 0, 0, 0);
+            this.dtOutGoingEndDate.MinimumSize = new System.Drawing.Size(4, 25);
+            this.dtOutGoingEndDate.Name = "dtOutGoingEndDate";
+            this.dtOutGoingEndDate.Size = new System.Drawing.Size(173, 25);
+            this.dtOutGoingEndDate.TabIndex = 32;
+            this.dtOutGoingEndDate.Value = new System.DateTime(2023, 4, 21, 0, 0, 0, 0);
+            // 
+            // dtOutGoingStartDate
+            // 
+            this.dtOutGoingStartDate.CustomFormat = "dd-MM-yyyy HH:mm";
+            this.dtOutGoingStartDate.FontSize = MetroFramework.MetroDateTimeSize.Small;
+            this.dtOutGoingStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtOutGoingStartDate.Location = new System.Drawing.Point(361, 61);
+            this.dtOutGoingStartDate.MaxDate = new System.DateTime(2029, 12, 31, 0, 0, 0, 0);
+            this.dtOutGoingStartDate.MinDate = new System.DateTime(2009, 12, 31, 0, 0, 0, 0);
+            this.dtOutGoingStartDate.MinimumSize = new System.Drawing.Size(4, 25);
+            this.dtOutGoingStartDate.Name = "dtOutGoingStartDate";
+            this.dtOutGoingStartDate.Size = new System.Drawing.Size(173, 25);
+            this.dtOutGoingStartDate.TabIndex = 31;
+            this.dtOutGoingStartDate.Value = new System.DateTime(2023, 4, 21, 0, 0, 0, 0);
             // 
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(3, 62);
+            this.metroLabel4.Location = new System.Drawing.Point(251, 61);
             this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(84, 19);
+            this.metroLabel4.Size = new System.Drawing.Size(104, 19);
             this.metroLabel4.TabIndex = 30;
-            this.metroLabel4.Text = "Arşiv Koli No";
+            this.metroLabel4.Text = "Oluşturma Tarihi";
             // 
-            // metroComboBox1
+            // cmbOutStatus
             // 
-            this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 23;
-            this.metroComboBox1.Items.AddRange(new object[] {
+            this.cmbOutStatus.FontSize = MetroFramework.MetroComboBoxSize.Small;
+            this.cmbOutStatus.FormattingEnabled = true;
+            this.cmbOutStatus.ItemHeight = 19;
+            this.cmbOutStatus.Items.AddRange(new object[] {
             "Hepsi",
             "Bekleyen",
             "Gönderilen"});
-            this.metroComboBox1.Location = new System.Drawing.Point(565, 32);
-            this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(126, 29);
-            this.metroComboBox1.TabIndex = 27;
-            this.metroComboBox1.UseSelectable = true;
+            this.cmbOutStatus.Location = new System.Drawing.Point(577, 32);
+            this.cmbOutStatus.Name = "cmbOutStatus";
+            this.cmbOutStatus.Size = new System.Drawing.Size(126, 25);
+            this.cmbOutStatus.TabIndex = 27;
+            this.cmbOutStatus.UseSelectable = true;
             // 
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(481, 32);
+            this.metroLabel3.Location = new System.Drawing.Point(493, 32);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(49, 19);
             this.metroLabel3.TabIndex = 26;
             this.metroLabel3.Text = "Durum";
             // 
-            // btnReportWithFilter
+            // btnReportOutgoingData
             // 
-            this.btnReportWithFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReportWithFilter.Location = new System.Drawing.Point(754, 3);
-            this.btnReportWithFilter.Name = "btnReportWithFilter";
-            this.btnReportWithFilter.Size = new System.Drawing.Size(155, 48);
-            this.btnReportWithFilter.TabIndex = 25;
-            this.btnReportWithFilter.Text = "Filtrele";
-            this.btnReportWithFilter.UseSelectable = true;
-            this.btnReportWithFilter.Click += new System.EventHandler(this.btnReportWithFilter_Click);
+            this.btnReportOutgoingData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReportOutgoingData.Location = new System.Drawing.Point(754, 3);
+            this.btnReportOutgoingData.Name = "btnReportOutgoingData";
+            this.btnReportOutgoingData.Size = new System.Drawing.Size(155, 48);
+            this.btnReportOutgoingData.TabIndex = 25;
+            this.btnReportOutgoingData.Text = "Filtrele";
+            this.btnReportOutgoingData.UseSelectable = true;
+            this.btnReportOutgoingData.Click += new System.EventHandler(this.btnReportOutgoingData_Click);
             // 
             // metroLabel12
             // 
             this.metroLabel12.AutoSize = true;
-            this.metroLabel12.Location = new System.Drawing.Point(481, 3);
+            this.metroLabel12.Location = new System.Drawing.Point(493, 3);
             this.metroLabel12.Name = "metroLabel12";
             this.metroLabel12.Size = new System.Drawing.Size(78, 19);
             this.metroLabel12.TabIndex = 24;
@@ -995,7 +932,7 @@
             this.txtReportBatchNo.CustomButton.UseSelectable = true;
             this.txtReportBatchNo.CustomButton.Visible = false;
             this.txtReportBatchNo.Lines = new string[0];
-            this.txtReportBatchNo.Location = new System.Drawing.Point(565, 3);
+            this.txtReportBatchNo.Location = new System.Drawing.Point(577, 3);
             this.txtReportBatchNo.MaxLength = 32767;
             this.txtReportBatchNo.Name = "txtReportBatchNo";
             this.txtReportBatchNo.PasswordChar = '\0';
@@ -1019,35 +956,35 @@
             this.metroLabel10.TabIndex = 22;
             this.metroLabel10.Text = "TCKN";
             // 
-            // txtReportNationalIdNo
+            // txtRprOutgoingNationalIdNo
             // 
             // 
             // 
             // 
-            this.txtReportNationalIdNo.CustomButton.Image = null;
-            this.txtReportNationalIdNo.CustomButton.Location = new System.Drawing.Point(104, 1);
-            this.txtReportNationalIdNo.CustomButton.Name = "";
-            this.txtReportNationalIdNo.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtReportNationalIdNo.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtReportNationalIdNo.CustomButton.TabIndex = 1;
-            this.txtReportNationalIdNo.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtReportNationalIdNo.CustomButton.UseSelectable = true;
-            this.txtReportNationalIdNo.CustomButton.Visible = false;
-            this.txtReportNationalIdNo.Lines = new string[0];
-            this.txtReportNationalIdNo.Location = new System.Drawing.Point(349, 32);
-            this.txtReportNationalIdNo.MaxLength = 32767;
-            this.txtReportNationalIdNo.Name = "txtReportNationalIdNo";
-            this.txtReportNationalIdNo.PasswordChar = '\0';
-            this.txtReportNationalIdNo.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtReportNationalIdNo.SelectedText = "";
-            this.txtReportNationalIdNo.SelectionLength = 0;
-            this.txtReportNationalIdNo.SelectionStart = 0;
-            this.txtReportNationalIdNo.ShortcutsEnabled = true;
-            this.txtReportNationalIdNo.Size = new System.Drawing.Size(126, 23);
-            this.txtReportNationalIdNo.TabIndex = 21;
-            this.txtReportNationalIdNo.UseSelectable = true;
-            this.txtReportNationalIdNo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtReportNationalIdNo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtRprOutgoingNationalIdNo.CustomButton.Image = null;
+            this.txtRprOutgoingNationalIdNo.CustomButton.Location = new System.Drawing.Point(104, 1);
+            this.txtRprOutgoingNationalIdNo.CustomButton.Name = "";
+            this.txtRprOutgoingNationalIdNo.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtRprOutgoingNationalIdNo.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtRprOutgoingNationalIdNo.CustomButton.TabIndex = 1;
+            this.txtRprOutgoingNationalIdNo.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtRprOutgoingNationalIdNo.CustomButton.UseSelectable = true;
+            this.txtRprOutgoingNationalIdNo.CustomButton.Visible = false;
+            this.txtRprOutgoingNationalIdNo.Lines = new string[0];
+            this.txtRprOutgoingNationalIdNo.Location = new System.Drawing.Point(361, 32);
+            this.txtRprOutgoingNationalIdNo.MaxLength = 32767;
+            this.txtRprOutgoingNationalIdNo.Name = "txtRprOutgoingNationalIdNo";
+            this.txtRprOutgoingNationalIdNo.PasswordChar = '\0';
+            this.txtRprOutgoingNationalIdNo.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtRprOutgoingNationalIdNo.SelectedText = "";
+            this.txtRprOutgoingNationalIdNo.SelectionLength = 0;
+            this.txtRprOutgoingNationalIdNo.SelectionStart = 0;
+            this.txtRprOutgoingNationalIdNo.ShortcutsEnabled = true;
+            this.txtRprOutgoingNationalIdNo.Size = new System.Drawing.Size(126, 23);
+            this.txtRprOutgoingNationalIdNo.TabIndex = 21;
+            this.txtRprOutgoingNationalIdNo.UseSelectable = true;
+            this.txtRprOutgoingNationalIdNo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtRprOutgoingNationalIdNo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // metroLabel11
             // 
@@ -1058,35 +995,35 @@
             this.metroLabel11.TabIndex = 20;
             this.metroLabel11.Text = "MOF Barkodu";
             // 
-            // txtReportBarcode
+            // txtRprOutGoingDocSerialNo
             // 
             // 
             // 
             // 
-            this.txtReportBarcode.CustomButton.Image = null;
-            this.txtReportBarcode.CustomButton.Location = new System.Drawing.Point(104, 1);
-            this.txtReportBarcode.CustomButton.Name = "";
-            this.txtReportBarcode.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtReportBarcode.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtReportBarcode.CustomButton.TabIndex = 1;
-            this.txtReportBarcode.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtReportBarcode.CustomButton.UseSelectable = true;
-            this.txtReportBarcode.CustomButton.Visible = false;
-            this.txtReportBarcode.Lines = new string[0];
-            this.txtReportBarcode.Location = new System.Drawing.Point(349, 3);
-            this.txtReportBarcode.MaxLength = 32767;
-            this.txtReportBarcode.Name = "txtReportBarcode";
-            this.txtReportBarcode.PasswordChar = '\0';
-            this.txtReportBarcode.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtReportBarcode.SelectedText = "";
-            this.txtReportBarcode.SelectionLength = 0;
-            this.txtReportBarcode.SelectionStart = 0;
-            this.txtReportBarcode.ShortcutsEnabled = true;
-            this.txtReportBarcode.Size = new System.Drawing.Size(126, 23);
-            this.txtReportBarcode.TabIndex = 19;
-            this.txtReportBarcode.UseSelectable = true;
-            this.txtReportBarcode.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtReportBarcode.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtRprOutGoingDocSerialNo.CustomButton.Image = null;
+            this.txtRprOutGoingDocSerialNo.CustomButton.Location = new System.Drawing.Point(104, 1);
+            this.txtRprOutGoingDocSerialNo.CustomButton.Name = "";
+            this.txtRprOutGoingDocSerialNo.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtRprOutGoingDocSerialNo.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtRprOutGoingDocSerialNo.CustomButton.TabIndex = 1;
+            this.txtRprOutGoingDocSerialNo.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtRprOutGoingDocSerialNo.CustomButton.UseSelectable = true;
+            this.txtRprOutGoingDocSerialNo.CustomButton.Visible = false;
+            this.txtRprOutGoingDocSerialNo.Lines = new string[0];
+            this.txtRprOutGoingDocSerialNo.Location = new System.Drawing.Point(361, 3);
+            this.txtRprOutGoingDocSerialNo.MaxLength = 32767;
+            this.txtRprOutGoingDocSerialNo.Name = "txtRprOutGoingDocSerialNo";
+            this.txtRprOutGoingDocSerialNo.PasswordChar = '\0';
+            this.txtRprOutGoingDocSerialNo.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtRprOutGoingDocSerialNo.SelectedText = "";
+            this.txtRprOutGoingDocSerialNo.SelectionLength = 0;
+            this.txtRprOutGoingDocSerialNo.SelectionStart = 0;
+            this.txtRprOutGoingDocSerialNo.ShortcutsEnabled = true;
+            this.txtRprOutGoingDocSerialNo.Size = new System.Drawing.Size(126, 23);
+            this.txtRprOutGoingDocSerialNo.TabIndex = 19;
+            this.txtRprOutGoingDocSerialNo.UseSelectable = true;
+            this.txtRprOutGoingDocSerialNo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtRprOutGoingDocSerialNo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // metroLabel9
             // 
@@ -1177,55 +1114,131 @@
             this.txtReportCourrierNo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtReportCourrierNo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // dataGridReport
+            // dataGridSentReport
             // 
-            this.dataGridReport.AllowUserToAddRows = false;
-            this.dataGridReport.AllowUserToDeleteRows = false;
-            this.dataGridReport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridSentReport.AllowUserToAddRows = false;
+            this.dataGridSentReport.AllowUserToDeleteRows = false;
+            this.dataGridSentReport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridReport.AutoGenerateColumns = false;
-            this.dataGridReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ıDDataGridViewTextBoxColumn1,
+            this.dataGridSentReport.AutoGenerateColumns = false;
+            this.dataGridSentReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridSentReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ısScannedDataGridViewCheckBoxColumn,
+            this.barcodeCourrierArchiveNoDataGridViewTextBoxColumn,
+            this.parcelCodeArchiveNoDataGridViewTextBoxColumn,
             this.documentSerialNoDataGridViewTextBoxColumn1,
             this.nationalIdentityNoDataGridViewTextBoxColumn1,
             this.companyCodeDataGridViewTextBoxColumn1,
-            this.barcodeCourrierArchiveNoDataGridViewTextBoxColumn,
-            this.parcelCodeArchiveNoDataGridViewTextBoxColumn,
             this.batchNumberDataGridViewTextBoxColumn,
             this.sentTimeDataGridViewTextBoxColumn,
             this.statusDataGridViewTextBoxColumn});
-            this.dataGridReport.DataSource = this.fIBAOutgoingBindingSource;
-            this.dataGridReport.Location = new System.Drawing.Point(0, 120);
-            this.dataGridReport.Name = "dataGridReport";
-            this.dataGridReport.ReadOnly = true;
-            this.dataGridReport.Size = new System.Drawing.Size(1073, 518);
-            this.dataGridReport.TabIndex = 2;
+            this.dataGridSentReport.DataSource = this.fIBAOutgoingBindingSource;
+            this.dataGridSentReport.Location = new System.Drawing.Point(0, 120);
+            this.dataGridSentReport.Name = "dataGridSentReport";
+            this.dataGridSentReport.ReadOnly = true;
+            this.dataGridSentReport.Size = new System.Drawing.Size(1073, 518);
+            this.dataGridSentReport.TabIndex = 2;
             // 
-            // ıDDataGridViewTextBoxColumn1
+            // cmbIncomeSendFlag
             // 
-            this.ıDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.ıDDataGridViewTextBoxColumn1.FillWeight = 50F;
-            this.ıDDataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.ıDDataGridViewTextBoxColumn1.Name = "ıDDataGridViewTextBoxColumn1";
-            this.ıDDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.ıDDataGridViewTextBoxColumn1.Width = 50;
+            this.cmbIncomeSendFlag.FontSize = MetroFramework.MetroComboBoxSize.Small;
+            this.cmbIncomeSendFlag.FormattingEnabled = true;
+            this.cmbIncomeSendFlag.ItemHeight = 19;
+            this.cmbIncomeSendFlag.Items.AddRange(new object[] {
+            "Hepsi",
+            "Gönderilen",
+            "Gönderilmeyen"});
+            this.cmbIncomeSendFlag.Location = new System.Drawing.Point(617, 3);
+            this.cmbIncomeSendFlag.Name = "cmbIncomeSendFlag";
+            this.cmbIncomeSendFlag.Size = new System.Drawing.Size(126, 25);
+            this.cmbIncomeSendFlag.TabIndex = 38;
+            this.cmbIncomeSendFlag.UseSelectable = true;
+            // 
+            // metroLabel17
+            // 
+            this.metroLabel17.AutoSize = true;
+            this.metroLabel17.Location = new System.Drawing.Point(482, 3);
+            this.metroLabel17.Name = "metroLabel17";
+            this.metroLabel17.Size = new System.Drawing.Size(129, 19);
+            this.metroLabel17.TabIndex = 37;
+            this.metroLabel17.Text = "Gönderilme Durumu";
+            // 
+            // cmbIncomeSuccessStatus
+            // 
+            this.cmbIncomeSuccessStatus.FontSize = MetroFramework.MetroComboBoxSize.Small;
+            this.cmbIncomeSuccessStatus.FormattingEnabled = true;
+            this.cmbIncomeSuccessStatus.ItemHeight = 19;
+            this.cmbIncomeSuccessStatus.Items.AddRange(new object[] {
+            "Hepsi",
+            "Başarılı",
+            "Başarısız"});
+            this.cmbIncomeSuccessStatus.Location = new System.Drawing.Point(349, 32);
+            this.cmbIncomeSuccessStatus.Name = "cmbIncomeSuccessStatus";
+            this.cmbIncomeSuccessStatus.Size = new System.Drawing.Size(126, 25);
+            this.cmbIncomeSuccessStatus.TabIndex = 40;
+            this.cmbIncomeSuccessStatus.UseSelectable = true;
+            // 
+            // metroLabel18
+            // 
+            this.metroLabel18.AutoSize = true;
+            this.metroLabel18.Location = new System.Drawing.Point(251, 32);
+            this.metroLabel18.Name = "metroLabel18";
+            this.metroLabel18.Size = new System.Drawing.Size(95, 19);
+            this.metroLabel18.TabIndex = 39;
+            this.metroLabel18.Text = "Başarı Durumu";
+            // 
+            // btnClearFields
+            // 
+            this.btnClearFields.Location = new System.Drawing.Point(3, 173);
+            this.btnClearFields.Name = "btnClearFields";
+            this.btnClearFields.Size = new System.Drawing.Size(148, 48);
+            this.btnClearFields.TabIndex = 19;
+            this.btnClearFields.Text = "Verileri Temizle";
+            this.btnClearFields.UseSelectable = true;
+            this.btnClearFields.Click += new System.EventHandler(this.btnClearFields_Click);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "CreatedByUser";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Oluşturan Kullanıcı";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // fIBAIncomeBindingSource
+            // 
+            this.fIBAIncomeBindingSource.DataSource = typeof(Reisswolf.Desktop.FIBAIncome);
             // 
             // ısScannedDataGridViewCheckBoxColumn
             // 
             this.ısScannedDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ısScannedDataGridViewCheckBoxColumn.DataPropertyName = "IsScanned";
-            this.ısScannedDataGridViewCheckBoxColumn.HeaderText = "IsScanned";
+            this.ısScannedDataGridViewCheckBoxColumn.HeaderText = "Tarandı";
             this.ısScannedDataGridViewCheckBoxColumn.Name = "ısScannedDataGridViewCheckBoxColumn";
             this.ısScannedDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // barcodeCourrierArchiveNoDataGridViewTextBoxColumn
+            // 
+            this.barcodeCourrierArchiveNoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.barcodeCourrierArchiveNoDataGridViewTextBoxColumn.DataPropertyName = "BarcodeCourrierArchiveNo";
+            this.barcodeCourrierArchiveNoDataGridViewTextBoxColumn.HeaderText = "Kurye Barkod No";
+            this.barcodeCourrierArchiveNoDataGridViewTextBoxColumn.Name = "barcodeCourrierArchiveNoDataGridViewTextBoxColumn";
+            this.barcodeCourrierArchiveNoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // parcelCodeArchiveNoDataGridViewTextBoxColumn
+            // 
+            this.parcelCodeArchiveNoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.parcelCodeArchiveNoDataGridViewTextBoxColumn.DataPropertyName = "ParcelCodeArchiveNo";
+            this.parcelCodeArchiveNoDataGridViewTextBoxColumn.HeaderText = "Arşiv Koli No";
+            this.parcelCodeArchiveNoDataGridViewTextBoxColumn.Name = "parcelCodeArchiveNoDataGridViewTextBoxColumn";
+            this.parcelCodeArchiveNoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // documentSerialNoDataGridViewTextBoxColumn1
             // 
             this.documentSerialNoDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.documentSerialNoDataGridViewTextBoxColumn1.DataPropertyName = "DocumentSerialNo";
-            this.documentSerialNoDataGridViewTextBoxColumn1.HeaderText = "DocumentSerialNo";
+            this.documentSerialNoDataGridViewTextBoxColumn1.HeaderText = "MOF Barkodu";
             this.documentSerialNoDataGridViewTextBoxColumn1.Name = "documentSerialNoDataGridViewTextBoxColumn1";
             this.documentSerialNoDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
@@ -1233,7 +1246,7 @@
             // 
             this.nationalIdentityNoDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.nationalIdentityNoDataGridViewTextBoxColumn1.DataPropertyName = "NationalIdentityNo";
-            this.nationalIdentityNoDataGridViewTextBoxColumn1.HeaderText = "NationalIdentityNo";
+            this.nationalIdentityNoDataGridViewTextBoxColumn1.HeaderText = "TCKN";
             this.nationalIdentityNoDataGridViewTextBoxColumn1.Name = "nationalIdentityNoDataGridViewTextBoxColumn1";
             this.nationalIdentityNoDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
@@ -1245,27 +1258,11 @@
             this.companyCodeDataGridViewTextBoxColumn1.Name = "companyCodeDataGridViewTextBoxColumn1";
             this.companyCodeDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // barcodeCourrierArchiveNoDataGridViewTextBoxColumn
-            // 
-            this.barcodeCourrierArchiveNoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.barcodeCourrierArchiveNoDataGridViewTextBoxColumn.DataPropertyName = "BarcodeCourrierArchiveNo";
-            this.barcodeCourrierArchiveNoDataGridViewTextBoxColumn.HeaderText = "BarcodeCourrierArchiveNo";
-            this.barcodeCourrierArchiveNoDataGridViewTextBoxColumn.Name = "barcodeCourrierArchiveNoDataGridViewTextBoxColumn";
-            this.barcodeCourrierArchiveNoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // parcelCodeArchiveNoDataGridViewTextBoxColumn
-            // 
-            this.parcelCodeArchiveNoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.parcelCodeArchiveNoDataGridViewTextBoxColumn.DataPropertyName = "ParcelCodeArchiveNo";
-            this.parcelCodeArchiveNoDataGridViewTextBoxColumn.HeaderText = "ParcelCodeArchiveNo";
-            this.parcelCodeArchiveNoDataGridViewTextBoxColumn.Name = "parcelCodeArchiveNoDataGridViewTextBoxColumn";
-            this.parcelCodeArchiveNoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // batchNumberDataGridViewTextBoxColumn
             // 
             this.batchNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.batchNumberDataGridViewTextBoxColumn.DataPropertyName = "BatchNumber";
-            this.batchNumberDataGridViewTextBoxColumn.HeaderText = "BatchNumber";
+            this.batchNumberDataGridViewTextBoxColumn.HeaderText = "Gönderi No";
             this.batchNumberDataGridViewTextBoxColumn.Name = "batchNumberDataGridViewTextBoxColumn";
             this.batchNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -1276,7 +1273,7 @@
             dataGridViewCellStyle3.Format = "G";
             dataGridViewCellStyle3.NullValue = null;
             this.sentTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.sentTimeDataGridViewTextBoxColumn.HeaderText = "SentTime";
+            this.sentTimeDataGridViewTextBoxColumn.HeaderText = "Gönderim Tarihi";
             this.sentTimeDataGridViewTextBoxColumn.Name = "sentTimeDataGridViewTextBoxColumn";
             this.sentTimeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -1284,13 +1281,76 @@
             // 
             this.statusDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Durum";
             this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             this.statusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // fIBAOutgoingBindingSource
             // 
             this.fIBAOutgoingBindingSource.DataSource = typeof(Reisswolf.Desktop.FIBAOutgoing);
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "DocumentSerialNo";
+            this.dataGridViewTextBoxColumn2.HeaderText = "MOF Barkodu";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "NationalIdentityNo";
+            this.dataGridViewTextBoxColumn3.HeaderText = "TCKN";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "CompanyCode";
+            this.dataGridViewTextBoxColumn4.HeaderText = "CompanyCode";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // CreatedByUser
+            // 
+            this.CreatedByUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CreatedByUser.DataPropertyName = "CreatedUserName";
+            this.CreatedByUser.HeaderText = "Oluşturan Kullanıcı";
+            this.CreatedByUser.Name = "CreatedByUser";
+            this.CreatedByUser.ReadOnly = true;
+            // 
+            // CreatedDate
+            // 
+            this.CreatedDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CreatedDate.DataPropertyName = "CreatedDate";
+            this.CreatedDate.HeaderText = "Oluşturma Tarihi";
+            this.CreatedDate.Name = "CreatedDate";
+            this.CreatedDate.ReadOnly = true;
+            // 
+            // ModifiedUserName
+            // 
+            this.ModifiedUserName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ModifiedUserName.DataPropertyName = "ModifiedUserName";
+            this.ModifiedUserName.HeaderText = "Düzenleyen Kullanıcı";
+            this.ModifiedUserName.Name = "ModifiedUserName";
+            this.ModifiedUserName.ReadOnly = true;
+            // 
+            // ModifyDate
+            // 
+            this.ModifyDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ModifyDate.DataPropertyName = "ModifyDate";
+            this.ModifyDate.HeaderText = "Düzenleme Tarihi";
+            this.ModifyDate.Name = "ModifyDate";
+            this.ModifyDate.ReadOnly = true;
+            // 
+            // ItWillScanFlag
+            // 
+            this.ItWillScanFlag.DataPropertyName = "ItWillScanFlag";
+            this.ItWillScanFlag.HeaderText = "Taranacak";
+            this.ItWillScanFlag.Name = "ItWillScanFlag";
+            this.ItWillScanFlag.ReadOnly = true;
             // 
             // Dashboard
             // 
@@ -1301,7 +1361,6 @@
             this.Name = "Dashboard";
             this.Resizable = false;
             this.Text = "Dashboard";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.metroTabControl1.ResumeLayout(false);
             this.tabMofMovements.ResumeLayout(false);
             this.tabMofMovements.PerformLayout();
@@ -1309,12 +1368,12 @@
             this.tabIncomeData.ResumeLayout(false);
             this.metroPanel2.ResumeLayout(false);
             this.metroPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fIBAIncomeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridIncomeReport)).EndInit();
             this.tabSentData.ResumeLayout(false);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridSentReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fIBAIncomeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fIBAOutgoingBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -1340,17 +1399,7 @@
         public System.Windows.Forms.ColumnHeader ColDocumentSerialNo;
         private MetroFramework.Controls.MetroButton btnGetDataFromDb;
         private System.Windows.Forms.BindingSource fIBAOutgoingBindingSource;
-        private System.Windows.Forms.DataGridView dataGridReport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ıDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ısScannedDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn documentSerialNoDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nationalIdentityNoDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn companyCodeDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn barcodeCourrierArchiveNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn parcelCodeArchiveNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn batchNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sentTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dataGridSentReport;
         private MetroFramework.Controls.MetroButton btnSentDataExportToExcel;
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private MetroFramework.Controls.MetroLabel metroLabel9;
@@ -1358,50 +1407,67 @@
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroTextBox txtReportCourrierNo;
         private MetroFramework.Controls.MetroLabel metroLabel10;
-        private MetroFramework.Controls.MetroTextBox txtReportNationalIdNo;
+        private MetroFramework.Controls.MetroTextBox txtRprOutgoingNationalIdNo;
         private MetroFramework.Controls.MetroLabel metroLabel11;
-        private MetroFramework.Controls.MetroTextBox txtReportBarcode;
-        private MetroFramework.Controls.MetroButton btnReportWithFilter;
+        private MetroFramework.Controls.MetroTextBox txtRprOutGoingDocSerialNo;
+        private MetroFramework.Controls.MetroButton btnReportOutgoingData;
         private MetroFramework.Controls.MetroLabel metroLabel12;
         private MetroFramework.Controls.MetroTextBox txtReportBatchNo;
         private System.Windows.Forms.BindingSource fIBAIncomeBindingSource;
         private MetroFramework.Controls.MetroTabPage tabIncomeData;
         private MetroFramework.Controls.MetroButton btnGetSavedData;
-        private MetroFramework.Controls.MetroComboBox metroComboBox1;
+        private MetroFramework.Controls.MetroComboBox cmbOutStatus;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroPanel metroPanel2;
-        private MetroFramework.Controls.MetroLabel metroLabel5;
-        private MetroFramework.Controls.MetroDateTime metroDateTime3;
-        private MetroFramework.Controls.MetroDateTime metroDateTime4;
-        private MetroFramework.Controls.MetroComboBox metroComboBox2;
-        private MetroFramework.Controls.MetroLabel metroLabel13;
-        private MetroFramework.Controls.MetroButton metroButton2;
-        private MetroFramework.Controls.MetroLabel metroLabel14;
-        private MetroFramework.Controls.MetroTextBox metroTextBox1;
+        private MetroFramework.Controls.MetroDateTime dtIncomeEndDate;
+        private MetroFramework.Controls.MetroDateTime dtIncomeStartDate;
+        private MetroFramework.Controls.MetroButton btnReportIncomeData;
         private MetroFramework.Controls.MetroLabel metroLabel15;
-        private MetroFramework.Controls.MetroTextBox metroTextBox2;
+        private MetroFramework.Controls.MetroTextBox txtRprIncomeNationalIdNo;
         private MetroFramework.Controls.MetroLabel metroLabel16;
-        private MetroFramework.Controls.MetroTextBox metroTextBox3;
-        private MetroFramework.Controls.MetroLabel metroLabel17;
-        private MetroFramework.Controls.MetroTextBox metroTextBox4;
-        private MetroFramework.Controls.MetroLabel metroLabel18;
-        private MetroFramework.Controls.MetroButton metroButton3;
-        private MetroFramework.Controls.MetroTextBox metroTextBox5;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private MetroFramework.Controls.MetroTextBox txtRprIncomeDocSerialNo;
+        private MetroFramework.Controls.MetroButton btnIncomeDataExportToExcel;
+        private System.Windows.Forms.DataGridView dataGridIncomeReport;
         private System.Windows.Forms.DataGridViewTextBoxColumn ScannedBarcodeCourierArchive;
         private System.Windows.Forms.DataGridViewTextBoxColumn ScannedArchiveNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ScannedDocumentSerialNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ScannedNationalIdentityNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ScannedCompanyCode;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ScannedItWillScanFlag;
-        private MetroFramework.Controls.MetroDateTime metroDateTime1;
-        private MetroFramework.Controls.MetroDateTime metroDateTime2;
+        private MetroFramework.Controls.MetroDateTime dtOutGoingEndDate;
+        private MetroFramework.Controls.MetroDateTime dtOutGoingStartDate;
         private MetroFramework.Controls.MetroProgressBar sendDataProgressBar;
         public MetroFramework.Controls.MetroLabel lblProgressBar;
+        private MetroFramework.Controls.MetroCheckBox chkIncludeOutDates;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroCheckBox chkIncludeIncomeDates;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ısScannedDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn barcodeCourrierArchiveNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn parcelCodeArchiveNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn documentSerialNoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nationalIdentityNoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn companyCodeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn batchNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sentTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private MetroFramework.Controls.MetroTextBox txtRprIncomeCompanyCode;
+        private MetroFramework.Controls.MetroLabel metroLabel14;
+        private MetroFramework.Controls.MetroLabel metroLabel13;
+        private MetroFramework.Controls.MetroTextBox txtRprOutgoingCompanyCode;
+        private MetroFramework.Controls.MetroComboBox cmbIncomeSuccessStatus;
+        private MetroFramework.Controls.MetroLabel metroLabel18;
+        private MetroFramework.Controls.MetroComboBox cmbIncomeSendFlag;
+        private MetroFramework.Controls.MetroLabel metroLabel17;
+        private MetroFramework.Controls.MetroButton btnClearFields;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreatedByUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreatedDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ModifiedUserName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ModifyDate;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ItWillScanFlag;
     }
 }
