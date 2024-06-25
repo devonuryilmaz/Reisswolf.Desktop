@@ -209,14 +209,14 @@ namespace Reisswolf.Desktop
             foreach (DataGridViewRow row in dataGridScannedBarcodes.Rows)
             {
                 DocumentArchiveModel tableData = new DocumentArchiveModel();
-                model.barcodeCourierArchive = row.Cells["ScannedBarcodeCourierArchive"].Value.ToString();
+                model.archiveBagId = row.Cells["ScannedBarcodeCourierArchive"].Value.ToString();
 
-                tableData.documentSerialNo = row.Cells["ScannedDocumentSerialNo"].Value.ToString();
+                tableData.barcodeNumber = row.Cells["ScannedDocumentSerialNo"].Value.ToString();
                 tableData.parcelCodeArchive = row.Cells["ScannedArchiveNo"].Value.ToString();
 
-                model.TABLE.Add(tableData);
+                model.archiveDocumentList.Add(tableData);
 
-                sentBarcodes.Add(tableData.documentSerialNo);
+                sentBarcodes.Add(tableData.barcodeNumber);
             }
 
             lblProgressBar.Text = "Veri gönderiliyor.";
@@ -229,71 +229,83 @@ namespace Reisswolf.Desktop
             {
                 try
                 {
-                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Core.TokenModel.access_token);
+                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Core.TokenModel.token);
                     request.Content = httpContent;
 
                     using (var response = await client
                                .SendAsync(request, HttpCompletionOption.ResponseHeadersRead)
                                .ConfigureAwait(false))
                     {
-                        response.EnsureSuccessStatusCode();
-
                         var responseContent = await response.Content.ReadAsStringAsync();
 
                         var responseModel = JsonConvert.DeserializeObject<ArchiveResponseModel>(responseContent);
 
+                        if (responseModel.error != null)
+                        {
+                            MessageBox.Show($"Hata Kodu: {responseModel.error.code} \n" +
+                                $"Hata Mesajı: {responseModel.error.message}", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            lblProgressBar.Text = "";
+                            sendDataProgressBar.Value = 0;
+                            sendDataProgressBar.Visible = false;
+                            sendDataProgressBar.Update();
+                            return;
+                        }
+
                         lblProgressBar.Text = "Veri gönderildi, veritabanı kayıtları oluşturuluyor.";
                         sendDataProgressBar.Value = 70;
                         sendDataProgressBar.Update();
-                        var dataCount = responseModel.TABLE != null ? responseModel.TABLE.Count : 0;
+                        var dataCount = responseModel.barcodeList != null ? responseModel.barcodeList.Count : 0;
                         var index = 1;
                         List<string> successDatas = new List<string>();
-                        Dictionary<string, string> failDatas = new Dictionary<string, string>();
+                        List<string> failDatas = new List<string>();
 
                         if (dataCount > 0)
                         {
-                            foreach (var data in responseModel.TABLE)
+                            foreach (var data in responseModel.barcodeList)
                             {
-                                if (data.ResultCode == "0")
+                                var incomeData = incomesData.FirstOrDefault(x => x.DocumentSerialNo == data);
+
+                                if (incomeData == null)
+                                    continue;
+
+                                FIBAOutgoing sentData = new FIBAOutgoing()
                                 {
-                                    var incomeData = incomesData.FirstOrDefault(x => x.DocumentSerialNo == data.DocumentSerialNo);
+                                    DocumentSerialNo = data,
+                                    BarcodeCourrierArchiveNo = txtCourrierNo.Text,
+                                    ParcelCodeArchiveNo = txtArchiveNo.Text,
+                                    BatchNumber = batchNumber,
+                                    SentTime = sentTime,
+                                    IsScanned = true,
+                                    Status = (int)EnumOutgoingStatus.Sent,
+                                    NationalIdentityNo = incomeData != null && !string.IsNullOrWhiteSpace(incomeData.NationalIdentityNo) ? incomeData.NationalIdentityNo : "",
+                                    CompanyCode = incomeData != null && !string.IsNullOrWhiteSpace(incomeData.CompanyCode) ? incomeData.CompanyCode : "",
+                                    CreatedBy = Core.ActiveUser.ID,
+                                    CreatedDate = sentTime,
+                                    IsActive = true,
+                                    IsDeleted = false
+                                };
 
-                                    FIBAOutgoing sentData = new FIBAOutgoing()
-                                    {
-                                        DocumentSerialNo = data.DocumentSerialNo,
-                                        BarcodeCourrierArchiveNo = txtCourrierNo.Text,
-                                        ParcelCodeArchiveNo = txtArchiveNo.Text,
-                                        BatchNumber = batchNumber,
-                                        SentTime = sentTime,
-                                        IsScanned = true,
-                                        Status = (int)EnumOutgoingStatus.Sent,
-                                        NationalIdentityNo = incomeData != null && !string.IsNullOrWhiteSpace(incomeData.NationalIdentityNo) ? incomeData.NationalIdentityNo : "",
-                                        CompanyCode = incomeData != null && !string.IsNullOrWhiteSpace(incomeData.CompanyCode) ? incomeData.CompanyCode : "",
-                                        CreatedBy = Core.ActiveUser.ID,
-                                        CreatedDate = sentTime,
-                                        IsActive = true,
-                                        IsDeleted = false
-                                    };
+                                sendDataProgressBar.Value = 70 + index++ * 100 / (70 + dataCount);
+                                sendDataProgressBar.Update();
 
-                                    sendDataProgressBar.Value = 70 + index++ * 100 / (70 + dataCount);
-                                    sendDataProgressBar.Update();
+                                incomeData.IsSent = true;
+                                incomeData.IsSuccessFlag = true;
 
-                                    incomeData.IsSent = true;
-                                    incomeData.IsSuccessFlag = true;
-
-                                    sendedDatas.Add(sentData);
-                                    sendedIncomeDatas.Add(incomeData);
-                                    successDatas.Add(data.DocumentSerialNo);
-                                }
-                                else
-                                {
-                                    failDatas.Add(data.DocumentSerialNo, data.Message);
-                                }
+                                sendedDatas.Add(sentData);
+                                sendedIncomeDatas.Add(incomeData);
+                                successDatas.Add(data);
                             }
+
+                            var failBarcodes = sentBarcodes.Where(x => !responseModel.barcodeList.Contains(x)).ToList();
+                            failDatas = failBarcodes;
 
                             Core.database.FIBAOutgoing.AddRange(sendedDatas);
                             Core.database.FIBAIncome.AddOrUpdate(sendedIncomeDatas.ToArray());
                             await Core.database.SaveChangesAsync();
+                        }
+                        else
+                        {
+                            failDatas = sentBarcodes;
                         }
 
                         lblProgressBar.Text = "İşlem tamamlandı!";
@@ -326,34 +338,43 @@ namespace Reisswolf.Desktop
 
         private async Task<bool> GetTokenFromService()
         {
+            var loginModel = new LoginModel()
+            {
+                userName = ExportApi.Default.UserName,
+                password = ExportApi.Default.Password,
+            };
+
             using (var client = new System.Net.Http.HttpClient())
             using (var request = new HttpRequestMessage(HttpMethod.Post, ExportApi.Default.AuthUrl))
+            using (var httpContent = HttpContentHelper.CreateHttpContent(loginModel))
             {
                 try
                 {
-                    var authenticationString = $"{ExportApi.Default.ClientId}:{ExportApi.Default.ClientSecret}";
-                    var base64EncodedAuthenticationString = Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(authenticationString));
-
-                    request.Headers.Authorization = new AuthenticationHeaderValue("Basic", base64EncodedAuthenticationString);
+                    request.Content = httpContent;
 
                     using (var response = await client
                                .SendAsync(request, HttpCompletionOption.ResponseHeadersRead)
                                .ConfigureAwait(false))
                     {
-                        response.EnsureSuccessStatusCode();
+                        using (var content = response.Content)
+                        {
+                            var result = await content.ReadAsStringAsync();
+                            var model = JsonConvert.DeserializeObject<ServiceTokenModel>(result);
 
-                        var responseContent = await response.Content.ReadAsStringAsync();
+                            if (model.error != null)
+                            {
+                                MessageBox.Show($"Hata Kodu: {model.error.code} \n" +
+                                    $"Hata Mesajı: {model.error.message}", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return false;
+                            }
 
-                        var tokenModel = JsonConvert.DeserializeObject<ServiceTokenModel>(responseContent);
-
-                        Core.TokenModel = tokenModel;
+                            Core.TokenModel = model;
+                        }
                     }
                 }
                 catch (Exception ex)
                 {
                     return false;
-                    //_logger.LogInformation("PdfError");
-                    //_logger.LogInformation(JsonConvert.SerializeObject(ex));
                 }
             }
 

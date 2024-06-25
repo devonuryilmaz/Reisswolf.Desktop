@@ -141,6 +141,7 @@
     <Compile Include="MessageBox.cs" />
     <Compile Include="Models\ArchiveResponseModel.cs" />
     <Compile Include="Models\DocumentFromArchiveModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ServiceTokenModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

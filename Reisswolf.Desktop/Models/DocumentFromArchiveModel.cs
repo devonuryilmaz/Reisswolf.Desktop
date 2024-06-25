@@ -10,15 +10,15 @@ namespace Reisswolf.Desktop.Models
     {
         public DocumentFromArchiveModel()
         {
-            this.TABLE = new List<DocumentArchiveModel>();
+            this.archiveDocumentList = new List<DocumentArchiveModel>();
         }
-        public string barcodeCourierArchive { get; set; }
-        public List<DocumentArchiveModel> TABLE { get; set; }
+        public string archiveBagId { get; set; }
+        public List<DocumentArchiveModel> archiveDocumentList { get; set; }
     }
 
     public class DocumentArchiveModel
     {
-        public string documentSerialNo { get; set; }
+        public string barcodeNumber { get; set; }
         public string parcelCodeArchive { get; set; }
     }
 }

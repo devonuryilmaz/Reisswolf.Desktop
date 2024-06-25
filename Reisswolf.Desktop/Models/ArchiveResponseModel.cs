@@ -8,10 +8,9 @@ namespace Reisswolf.Desktop.Models
 {
     public class ArchiveResponseModel
     {
-        public string Result1 { get; set; }
-        public string Result2 { get; set; }
-
-        public List<ArchiveResponseDetailModel> TABLE { get; set; }
+        public string id { get; set; }
+        public ErrorModel error { get; set; }
+        public List<string> barcodeList { get; set; }
     }
 
     public class ArchiveResponseDetailModel
@@ -20,5 +19,10 @@ namespace Reisswolf.Desktop.Models
         public string Message { get; set; }
         public string DocumentSerialNo { get; set; }
     }
-
+    
+    public class ErrorModel
+    {
+        public string code { get; set; }
+        public string message { get; set; }
+    }
 }

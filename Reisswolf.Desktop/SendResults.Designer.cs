@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("DocumentSerialNo", System.Windows.Forms.HorizontalAlignment.Left);
             this.successListView = new System.Windows.Forms.ListView();
             this.ColDocumentSerialNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.failListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblBarcode = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // successListView
@@ -65,14 +63,9 @@
             this.failListView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.failListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
+            this.columnHeader1});
             this.failListView.FullRowSelect = true;
             this.failListView.GridLines = true;
-            listViewGroup2.Header = "DocumentSerialNo";
-            listViewGroup2.Name = "MOFS";
-            this.failListView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup2});
             this.failListView.HideSelection = false;
             this.failListView.Location = new System.Drawing.Point(407, 102);
             this.failListView.Name = "failListView";
@@ -85,7 +78,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "MOF Barkod";
-            this.columnHeader1.Width = 162;
+            this.columnHeader1.Width = 357;
             // 
             // lblBarcode
             // 
@@ -104,11 +97,6 @@
             this.metroLabel1.Size = new System.Drawing.Size(145, 19);
             this.metroLabel1.TabIndex = 10;
             this.metroLabel1.Text = "Başarısız Gönderilenler:";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Hata Kodu";
-            this.columnHeader2.Width = 190;
             // 
             // SendResults
             // 
@@ -131,7 +119,6 @@
         public System.Windows.Forms.ColumnHeader columnHeader1;
         private MetroFramework.Controls.MetroLabel lblBarcode;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
         public System.Windows.Forms.ListView failListView;
         public System.Windows.Forms.ListView successListView;
     }

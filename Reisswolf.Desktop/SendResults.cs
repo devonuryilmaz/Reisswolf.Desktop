@@ -14,7 +14,7 @@ namespace Reisswolf.Desktop
     public partial class SendResults : MetroForm
     {
 
-        public SendResults(IList<string> successList, Dictionary<string, string> failList)
+        public SendResults(IList<string> successList, IList<string> failList)
         {
             InitializeComponent();
 
@@ -25,7 +25,7 @@ namespace Reisswolf.Desktop
 
             foreach (var failItem in failList)
             {
-                failListView.Items.Add(new ListViewItem(new[] {failItem.Key, failItem.Value}));
+                failListView.Items.Add(new ListViewItem(failItem));
             }
         }
     }

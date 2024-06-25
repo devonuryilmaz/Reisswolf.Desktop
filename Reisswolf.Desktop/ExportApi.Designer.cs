@@ -12,7 +12,7 @@ namespace Reisswolf.Desktop {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.4.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.9.0.0")]
     internal sealed partial class ExportApi : global::System.Configuration.ApplicationSettingsBase {
         
         private static ExportApi defaultInstance = ((ExportApi)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new ExportApi())));
@@ -44,19 +44,19 @@ namespace Reisswolf.Desktop {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("658340d0-6031-4bf3-8622-6f60e4eb525f")]
-        public string ClientId {
+        [global::System.Configuration.DefaultSettingValueAttribute("REISSWOLFUSER")]
+        public string UserName {
             get {
-                return ((string)(this["ClientId"]));
+                return ((string)(this["UserName"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("7f774c04-eb07-4498-9d4d-7e97efe0c40d")]
-        public string ClientSecret {
+        [global::System.Configuration.DefaultSettingValueAttribute("123456Rr")]
+        public string Password {
             get {
-                return ((string)(this["ClientSecret"]));
+                return ((string)(this["Password"]));
             }
         }
     }

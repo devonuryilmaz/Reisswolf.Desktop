@@ -35,6 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.tabMofMovements = new MetroFramework.Controls.MetroTabPage();
+            this.btnClearFields = new MetroFramework.Controls.MetroButton();
             this.lblProgressBar = new MetroFramework.Controls.MetroLabel();
             this.sendDataProgressBar = new MetroFramework.Controls.MetroProgressBar();
             this.btnGetSavedData = new MetroFramework.Controls.MetroButton();
@@ -60,6 +61,10 @@
             this.txtBarcode = new MetroFramework.Controls.MetroTextBox();
             this.tabIncomeData = new MetroFramework.Controls.MetroTabPage();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
+            this.cmbIncomeSuccessStatus = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
+            this.cmbIncomeSendFlag = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
             this.txtRprIncomeCompanyCode = new MetroFramework.Controls.MetroTextBox();
             this.chkIncludeIncomeDates = new MetroFramework.Controls.MetroCheckBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
@@ -73,6 +78,15 @@
             this.btnIncomeDataExportToExcel = new MetroFramework.Controls.MetroButton();
             this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
             this.dataGridIncomeReport = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedByUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModifiedUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModifyDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItWillScanFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.fIBAIncomeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabSentData = new MetroFramework.Controls.MetroTabPage();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
@@ -96,13 +110,6 @@
             this.btnSentDataExportToExcel = new MetroFramework.Controls.MetroButton();
             this.txtReportCourrierNo = new MetroFramework.Controls.MetroTextBox();
             this.dataGridSentReport = new System.Windows.Forms.DataGridView();
-            this.cmbIncomeSendFlag = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
-            this.cmbIncomeSuccessStatus = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
-            this.btnClearFields = new MetroFramework.Controls.MetroButton();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fIBAIncomeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ısScannedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.barcodeCourrierArchiveNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.parcelCodeArchiveNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,24 +120,17 @@
             this.sentTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fIBAOutgoingBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedByUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModifiedUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModifyDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItWillScanFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTabControl1.SuspendLayout();
             this.tabMofMovements.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridScannedBarcodes)).BeginInit();
             this.tabIncomeData.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridIncomeReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fIBAIncomeBindingSource)).BeginInit();
             this.tabSentData.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSentReport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fIBAIncomeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fIBAOutgoingBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,7 +142,7 @@
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(20, 60);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 2;
             this.metroTabControl1.Size = new System.Drawing.Size(1084, 676);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
@@ -177,6 +177,16 @@
             this.tabMofMovements.VerticalScrollbarBarColor = true;
             this.tabMofMovements.VerticalScrollbarHighlightOnWheel = false;
             this.tabMofMovements.VerticalScrollbarSize = 10;
+            // 
+            // btnClearFields
+            // 
+            this.btnClearFields.Location = new System.Drawing.Point(3, 173);
+            this.btnClearFields.Name = "btnClearFields";
+            this.btnClearFields.Size = new System.Drawing.Size(148, 48);
+            this.btnClearFields.TabIndex = 19;
+            this.btnClearFields.Text = "Verileri Temizle";
+            this.btnClearFields.UseSelectable = true;
+            this.btnClearFields.Click += new System.EventHandler(this.btnClearFields_Click);
             // 
             // lblProgressBar
             // 
@@ -525,6 +535,54 @@
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel2.VerticalScrollbarSize = 10;
             // 
+            // cmbIncomeSuccessStatus
+            // 
+            this.cmbIncomeSuccessStatus.FontSize = MetroFramework.MetroComboBoxSize.Small;
+            this.cmbIncomeSuccessStatus.FormattingEnabled = true;
+            this.cmbIncomeSuccessStatus.ItemHeight = 19;
+            this.cmbIncomeSuccessStatus.Items.AddRange(new object[] {
+            "Hepsi",
+            "Başarılı",
+            "Başarısız"});
+            this.cmbIncomeSuccessStatus.Location = new System.Drawing.Point(349, 32);
+            this.cmbIncomeSuccessStatus.Name = "cmbIncomeSuccessStatus";
+            this.cmbIncomeSuccessStatus.Size = new System.Drawing.Size(126, 25);
+            this.cmbIncomeSuccessStatus.TabIndex = 40;
+            this.cmbIncomeSuccessStatus.UseSelectable = true;
+            // 
+            // metroLabel18
+            // 
+            this.metroLabel18.AutoSize = true;
+            this.metroLabel18.Location = new System.Drawing.Point(251, 32);
+            this.metroLabel18.Name = "metroLabel18";
+            this.metroLabel18.Size = new System.Drawing.Size(95, 19);
+            this.metroLabel18.TabIndex = 39;
+            this.metroLabel18.Text = "Başarı Durumu";
+            // 
+            // cmbIncomeSendFlag
+            // 
+            this.cmbIncomeSendFlag.FontSize = MetroFramework.MetroComboBoxSize.Small;
+            this.cmbIncomeSendFlag.FormattingEnabled = true;
+            this.cmbIncomeSendFlag.ItemHeight = 19;
+            this.cmbIncomeSendFlag.Items.AddRange(new object[] {
+            "Hepsi",
+            "Gönderilen",
+            "Gönderilmeyen"});
+            this.cmbIncomeSendFlag.Location = new System.Drawing.Point(617, 3);
+            this.cmbIncomeSendFlag.Name = "cmbIncomeSendFlag";
+            this.cmbIncomeSendFlag.Size = new System.Drawing.Size(126, 25);
+            this.cmbIncomeSendFlag.TabIndex = 38;
+            this.cmbIncomeSendFlag.UseSelectable = true;
+            // 
+            // metroLabel17
+            // 
+            this.metroLabel17.AutoSize = true;
+            this.metroLabel17.Location = new System.Drawing.Point(482, 3);
+            this.metroLabel17.Name = "metroLabel17";
+            this.metroLabel17.Size = new System.Drawing.Size(129, 19);
+            this.metroLabel17.TabIndex = 37;
+            this.metroLabel17.Text = "Gönderilme Durumu";
+            // 
             // txtRprIncomeCompanyCode
             // 
             // 
@@ -582,7 +640,7 @@
             this.dtIncomeEndDate.Location = new System.Drawing.Point(298, 62);
             this.dtIncomeEndDate.MaxDate = new System.DateTime(2029, 12, 31, 0, 0, 0, 0);
             this.dtIncomeEndDate.MinDate = new System.DateTime(2009, 12, 31, 0, 0, 0, 0);
-            this.dtIncomeEndDate.MinimumSize = new System.Drawing.Size(0, 25);
+            this.dtIncomeEndDate.MinimumSize = new System.Drawing.Size(4, 25);
             this.dtIncomeEndDate.Name = "dtIncomeEndDate";
             this.dtIncomeEndDate.Size = new System.Drawing.Size(177, 25);
             this.dtIncomeEndDate.TabIndex = 29;
@@ -596,7 +654,7 @@
             this.dtIncomeStartDate.Location = new System.Drawing.Point(119, 62);
             this.dtIncomeStartDate.MaxDate = new System.DateTime(2029, 12, 31, 0, 0, 0, 0);
             this.dtIncomeStartDate.MinDate = new System.DateTime(2009, 12, 31, 0, 0, 0, 0);
-            this.dtIncomeStartDate.MinimumSize = new System.Drawing.Size(0, 25);
+            this.dtIncomeStartDate.MinimumSize = new System.Drawing.Size(4, 25);
             this.dtIncomeStartDate.Name = "dtIncomeStartDate";
             this.dtIncomeStartDate.Size = new System.Drawing.Size(173, 25);
             this.dtIncomeStartDate.TabIndex = 28;
@@ -736,6 +794,73 @@
             this.dataGridIncomeReport.Size = new System.Drawing.Size(1073, 518);
             this.dataGridIncomeReport.TabIndex = 14;
             // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "DocumentSerialNo";
+            this.dataGridViewTextBoxColumn2.HeaderText = "MOF Barkodu";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "NationalIdentityNo";
+            this.dataGridViewTextBoxColumn3.HeaderText = "TCKN";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "CompanyCode";
+            this.dataGridViewTextBoxColumn4.HeaderText = "CompanyCode";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // CreatedByUser
+            // 
+            this.CreatedByUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CreatedByUser.DataPropertyName = "CreatedUserName";
+            this.CreatedByUser.HeaderText = "Oluşturan Kullanıcı";
+            this.CreatedByUser.Name = "CreatedByUser";
+            this.CreatedByUser.ReadOnly = true;
+            // 
+            // CreatedDate
+            // 
+            this.CreatedDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CreatedDate.DataPropertyName = "CreatedDate";
+            this.CreatedDate.HeaderText = "Oluşturma Tarihi";
+            this.CreatedDate.Name = "CreatedDate";
+            this.CreatedDate.ReadOnly = true;
+            // 
+            // ModifiedUserName
+            // 
+            this.ModifiedUserName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ModifiedUserName.DataPropertyName = "ModifiedUserName";
+            this.ModifiedUserName.HeaderText = "Düzenleyen Kullanıcı";
+            this.ModifiedUserName.Name = "ModifiedUserName";
+            this.ModifiedUserName.ReadOnly = true;
+            // 
+            // ModifyDate
+            // 
+            this.ModifyDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ModifyDate.DataPropertyName = "ModifyDate";
+            this.ModifyDate.HeaderText = "Düzenleme Tarihi";
+            this.ModifyDate.Name = "ModifyDate";
+            this.ModifyDate.ReadOnly = true;
+            // 
+            // ItWillScanFlag
+            // 
+            this.ItWillScanFlag.DataPropertyName = "ItWillScanFlag";
+            this.ItWillScanFlag.HeaderText = "Taranacak";
+            this.ItWillScanFlag.Name = "ItWillScanFlag";
+            this.ItWillScanFlag.ReadOnly = true;
+            // 
+            // fIBAIncomeBindingSource
+            // 
+            this.fIBAIncomeBindingSource.DataSource = typeof(Reisswolf.Desktop.FIBAIncome);
+            // 
             // tabSentData
             // 
             this.tabSentData.Controls.Add(this.metroPanel1);
@@ -844,7 +969,7 @@
             this.dtOutGoingEndDate.Location = new System.Drawing.Point(540, 61);
             this.dtOutGoingEndDate.MaxDate = new System.DateTime(2029, 12, 31, 0, 0, 0, 0);
             this.dtOutGoingEndDate.MinDate = new System.DateTime(2009, 12, 31, 0, 0, 0, 0);
-            this.dtOutGoingEndDate.MinimumSize = new System.Drawing.Size(4, 25);
+            this.dtOutGoingEndDate.MinimumSize = new System.Drawing.Size(0, 25);
             this.dtOutGoingEndDate.Name = "dtOutGoingEndDate";
             this.dtOutGoingEndDate.Size = new System.Drawing.Size(173, 25);
             this.dtOutGoingEndDate.TabIndex = 32;
@@ -858,7 +983,7 @@
             this.dtOutGoingStartDate.Location = new System.Drawing.Point(361, 61);
             this.dtOutGoingStartDate.MaxDate = new System.DateTime(2029, 12, 31, 0, 0, 0, 0);
             this.dtOutGoingStartDate.MinDate = new System.DateTime(2009, 12, 31, 0, 0, 0, 0);
-            this.dtOutGoingStartDate.MinimumSize = new System.Drawing.Size(4, 25);
+            this.dtOutGoingStartDate.MinimumSize = new System.Drawing.Size(0, 25);
             this.dtOutGoingStartDate.Name = "dtOutGoingStartDate";
             this.dtOutGoingStartDate.Size = new System.Drawing.Size(173, 25);
             this.dtOutGoingStartDate.TabIndex = 31;
@@ -1140,76 +1265,6 @@
             this.dataGridSentReport.Size = new System.Drawing.Size(1073, 518);
             this.dataGridSentReport.TabIndex = 2;
             // 
-            // cmbIncomeSendFlag
-            // 
-            this.cmbIncomeSendFlag.FontSize = MetroFramework.MetroComboBoxSize.Small;
-            this.cmbIncomeSendFlag.FormattingEnabled = true;
-            this.cmbIncomeSendFlag.ItemHeight = 19;
-            this.cmbIncomeSendFlag.Items.AddRange(new object[] {
-            "Hepsi",
-            "Gönderilen",
-            "Gönderilmeyen"});
-            this.cmbIncomeSendFlag.Location = new System.Drawing.Point(617, 3);
-            this.cmbIncomeSendFlag.Name = "cmbIncomeSendFlag";
-            this.cmbIncomeSendFlag.Size = new System.Drawing.Size(126, 25);
-            this.cmbIncomeSendFlag.TabIndex = 38;
-            this.cmbIncomeSendFlag.UseSelectable = true;
-            // 
-            // metroLabel17
-            // 
-            this.metroLabel17.AutoSize = true;
-            this.metroLabel17.Location = new System.Drawing.Point(482, 3);
-            this.metroLabel17.Name = "metroLabel17";
-            this.metroLabel17.Size = new System.Drawing.Size(129, 19);
-            this.metroLabel17.TabIndex = 37;
-            this.metroLabel17.Text = "Gönderilme Durumu";
-            // 
-            // cmbIncomeSuccessStatus
-            // 
-            this.cmbIncomeSuccessStatus.FontSize = MetroFramework.MetroComboBoxSize.Small;
-            this.cmbIncomeSuccessStatus.FormattingEnabled = true;
-            this.cmbIncomeSuccessStatus.ItemHeight = 19;
-            this.cmbIncomeSuccessStatus.Items.AddRange(new object[] {
-            "Hepsi",
-            "Başarılı",
-            "Başarısız"});
-            this.cmbIncomeSuccessStatus.Location = new System.Drawing.Point(349, 32);
-            this.cmbIncomeSuccessStatus.Name = "cmbIncomeSuccessStatus";
-            this.cmbIncomeSuccessStatus.Size = new System.Drawing.Size(126, 25);
-            this.cmbIncomeSuccessStatus.TabIndex = 40;
-            this.cmbIncomeSuccessStatus.UseSelectable = true;
-            // 
-            // metroLabel18
-            // 
-            this.metroLabel18.AutoSize = true;
-            this.metroLabel18.Location = new System.Drawing.Point(251, 32);
-            this.metroLabel18.Name = "metroLabel18";
-            this.metroLabel18.Size = new System.Drawing.Size(95, 19);
-            this.metroLabel18.TabIndex = 39;
-            this.metroLabel18.Text = "Başarı Durumu";
-            // 
-            // btnClearFields
-            // 
-            this.btnClearFields.Location = new System.Drawing.Point(3, 173);
-            this.btnClearFields.Name = "btnClearFields";
-            this.btnClearFields.Size = new System.Drawing.Size(148, 48);
-            this.btnClearFields.TabIndex = 19;
-            this.btnClearFields.Text = "Verileri Temizle";
-            this.btnClearFields.UseSelectable = true;
-            this.btnClearFields.Click += new System.EventHandler(this.btnClearFields_Click);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "CreatedByUser";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Oluşturan Kullanıcı";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // fIBAIncomeBindingSource
-            // 
-            this.fIBAIncomeBindingSource.DataSource = typeof(Reisswolf.Desktop.FIBAIncome);
-            // 
             // ısScannedDataGridViewCheckBoxColumn
             // 
             this.ısScannedDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -1289,68 +1344,13 @@
             // 
             this.fIBAOutgoingBindingSource.DataSource = typeof(Reisswolf.Desktop.FIBAOutgoing);
             // 
-            // dataGridViewTextBoxColumn2
+            // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "DocumentSerialNo";
-            this.dataGridViewTextBoxColumn2.HeaderText = "MOF Barkodu";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "NationalIdentityNo";
-            this.dataGridViewTextBoxColumn3.HeaderText = "TCKN";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "CompanyCode";
-            this.dataGridViewTextBoxColumn4.HeaderText = "CompanyCode";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // CreatedByUser
-            // 
-            this.CreatedByUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CreatedByUser.DataPropertyName = "CreatedUserName";
-            this.CreatedByUser.HeaderText = "Oluşturan Kullanıcı";
-            this.CreatedByUser.Name = "CreatedByUser";
-            this.CreatedByUser.ReadOnly = true;
-            // 
-            // CreatedDate
-            // 
-            this.CreatedDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CreatedDate.DataPropertyName = "CreatedDate";
-            this.CreatedDate.HeaderText = "Oluşturma Tarihi";
-            this.CreatedDate.Name = "CreatedDate";
-            this.CreatedDate.ReadOnly = true;
-            // 
-            // ModifiedUserName
-            // 
-            this.ModifiedUserName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ModifiedUserName.DataPropertyName = "ModifiedUserName";
-            this.ModifiedUserName.HeaderText = "Düzenleyen Kullanıcı";
-            this.ModifiedUserName.Name = "ModifiedUserName";
-            this.ModifiedUserName.ReadOnly = true;
-            // 
-            // ModifyDate
-            // 
-            this.ModifyDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ModifyDate.DataPropertyName = "ModifyDate";
-            this.ModifyDate.HeaderText = "Düzenleme Tarihi";
-            this.ModifyDate.Name = "ModifyDate";
-            this.ModifyDate.ReadOnly = true;
-            // 
-            // ItWillScanFlag
-            // 
-            this.ItWillScanFlag.DataPropertyName = "ItWillScanFlag";
-            this.ItWillScanFlag.HeaderText = "Taranacak";
-            this.ItWillScanFlag.Name = "ItWillScanFlag";
-            this.ItWillScanFlag.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "CreatedByUser";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Oluşturan Kullanıcı";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // Dashboard
             // 
@@ -1369,11 +1369,11 @@
             this.metroPanel2.ResumeLayout(false);
             this.metroPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridIncomeReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fIBAIncomeBindingSource)).EndInit();
             this.tabSentData.ResumeLayout(false);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSentReport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fIBAIncomeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fIBAOutgoingBindingSource)).EndInit();
             this.ResumeLayout(false);
 

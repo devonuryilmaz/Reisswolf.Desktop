@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Reisswolf.Desktop.Models
 {
-    public class ServiceTokenModel
+    public class LoginModel
     {
-        public string token { get; set; }
-        public ErrorModel error { get; set; }
+        public string userName { get; set; }
+        public string password { get; set; }
     }
 }
