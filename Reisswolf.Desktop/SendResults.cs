@@ -30,7 +30,7 @@ namespace Reisswolf.Desktop
             {
                 foreach (var failItem in failList)
                 {
-                    failListView.Items.Add(new ListViewItem(new[] { failItem.Key, failItem.Value }));
+                    failListView.Items.Add(new ListViewItem(failItem));
                 }
             }
         }
