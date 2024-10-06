@@ -21,6 +21,11 @@ namespace Reisswolf.Desktop
         List<FIBAIncome> incomesData;
         List<string> scannedBarcodes = new List<string>();
         bool dataFromWaitedDatas = false;
+        int dataCount = 0;
+        int incomeReportPageNum = 0;
+        int incomeReportTotalCount = 0;
+        int sentReportPageNum = 0;
+        int sentReportTotalCount = 0;
 
         public Dashboard()
         {
@@ -55,6 +60,13 @@ namespace Reisswolf.Desktop
                 else
                 {
                     var incomeData = incomesData.FirstOrDefault(x => x.DocumentSerialNo == barcode);
+                    if (incomeData == null)
+                    {
+                        incomeData = Core.database.FIBAIncome.FirstOrDefault(x => x.DocumentSerialNo == barcode);
+                        if (incomeData != null)
+                            listView1.Items.Insert(0, incomeData.DocumentSerialNo, incomeData.DocumentSerialNo, "");
+                    }
+
                     var nationalIdentityNo = incomeData != null && !string.IsNullOrWhiteSpace(incomeData.NationalIdentityNo) ? incomeData.NationalIdentityNo : string.Empty;
                     var companyCode = incomeData != null && !string.IsNullOrWhiteSpace(incomeData.CompanyCode) ? incomeData.CompanyCode : string.Empty;
                     var itWillScanFlag = incomeData != null ? incomeData.ItWillScanFlag : false;
@@ -168,8 +180,21 @@ namespace Reisswolf.Desktop
 
         private void SetData(bool? addToExistData = false)
         {
+            dataCount = Core.database.FIBAIncome.Where(p => p.IsSent == false).Count();
+
+            if (dataCount > 100)
+            {
+                lblTotalRecordCount.Text += (' ' + dataCount.ToString());
+                lblRecordCount.Text += " 100";
+            }
+            else
+            {
+                lblTotalRecordCount.Text += (' ' + dataCount.ToString());
+                lblRecordCount.Text += (' ' + dataCount.ToString());
+            }
+
             incomesData = Core.database.FIBAIncome
-                .Where(p => p.IsSent == false).ToList();
+                .Where(p => p.IsSent == false).Take(100).ToList();
 
             // Outgoingte Waitingde olanlar
 
@@ -495,7 +520,7 @@ namespace Reisswolf.Desktop
 
         private void FilterForOutgoingData()
         {
-            dataGridSentReport.DataSource = Core.database.FIBAOutgoing
+            var data = Core.database.FIBAOutgoing
                  .WhereIf(!string.IsNullOrWhiteSpace(txtReportArchiveNo.Text), x => x.ParcelCodeArchiveNo == txtReportArchiveNo.Text)
                  .WhereIf(!string.IsNullOrWhiteSpace(txtRprOutGoingDocSerialNo.Text), x => x.DocumentSerialNo == txtRprOutGoingDocSerialNo.Text)
                  .WhereIf(!string.IsNullOrWhiteSpace(txtReportCourrierNo.Text), x => x.BarcodeCourrierArchiveNo == txtReportCourrierNo.Text)
@@ -506,24 +531,37 @@ namespace Reisswolf.Desktop
                  .WhereIf(chkIncludeOutDates.Checked, x => x.CreatedDate >= dtOutGoingStartDate.Value && x.CreatedDate <= dtOutGoingEndDate.Value)
                  .Where(x => x.CreatedBy == Core.ActiveUser.ID)
                  .ToList();
+
+            dataGridSentReport.DataSource = data;
+
+            lblOutgoingReportTotalRecord.Text = "Toplam Kayıt Sayısı: " + data.Count;
         }
 
-        private void FilterForIncomeData()
+        private async void FilterForIncomeData()
         {
-            dataGridIncomeReport.DataSource = Core.database.FIBAIncome
+            var count = Core.database.FIBAIncome
                  .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeDocSerialNo.Text), x => x.DocumentSerialNo == txtRprIncomeDocSerialNo.Text)
                  .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeCompanyCode.Text), x => x.CompanyCode == txtRprIncomeCompanyCode.Text)
                  .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeNationalIdNo.Text), x => x.NationalIdentityNo == txtRprIncomeNationalIdNo.Text)
-                 .WhereIf(chkIncludeOutDates.Checked, x => x.CreatedDate >= dtIncomeStartDate.Value && x.CreatedDate <= dtIncomeEndDate.Value)
+                 .WhereIf(chkIncludeIncomeDates.Checked, x => x.CreatedDate >= dtIncomeStartDate.Value && x.CreatedDate <= dtIncomeEndDate.Value)
                  .WhereIf(cmbIncomeSuccessStatus.SelectedIndex == 1, x => x.IsSuccessFlag == true)
                  .WhereIf(cmbIncomeSuccessStatus.SelectedIndex == 2, x => x.IsSuccessFlag == false)
                  .WhereIf(cmbIncomeSendFlag.SelectedIndex == 1, x => x.IsSent == true)
-                 .WhereIf(cmbIncomeSendFlag.SelectedIndex == 2, x => x.IsSent == false)
-                 .ToList();
+                 .WhereIf(cmbIncomeSendFlag.SelectedIndex == 2, x => x.IsSent == false).Count();
+
+            var data = await GetIncomeReport();
+
+            incomeReportTotalCount = count;
+            dataGridIncomeReport.DataSource = data;
+            lblIncomeReportTotalRecord.Text = "Toplam Kayıt Sayısı: " + count;
+            lblIncomeReportPage.Text = "Sayfa: 1/" + ((count / 100) + 1);
+            btnIncomeNextPage.Enabled = true;
         }
 
         private void btnIncomeDataExportToExcel_Click(object sender, EventArgs e)
         {
+            var data = GetIncomeReport(0, incomeReportTotalCount);
+            dataGridIncomeReport.DataSource = data;
             ExportToExcel(dataGridIncomeReport, "Gelenler");
         }
 
@@ -603,5 +641,67 @@ namespace Reisswolf.Desktop
                 btnSend.Enabled = false;
         }
         #endregion
+
+        private void tabIncomeData_Enter(object sender, EventArgs e)
+        {
+            if (dataGridIncomeReport.RowCount == 0)
+            {
+                btnIncomePreviousPage.Enabled = btnIncomeNextPage.Enabled = false;
+                incomeReportPageNum = 1;
+            }
+        }
+
+        private async void btnIncomeNextPage_Click(object sender, EventArgs e)
+        {
+            if (incomeReportPageNum == ((incomeReportTotalCount / 100) + 1))
+            {
+                btnIncomeNextPage.Enabled = false;
+                return;
+            }
+
+            incomeReportPageNum++;
+            btnIncomePreviousPage.Enabled = true;
+
+            var data = await GetIncomeReport(incomeReportPageNum);
+
+            dataGridIncomeReport.DataSource = data;
+
+            lblIncomeReportPage.Text = "Sayfa: " + incomeReportPageNum.ToString() + "/" + ((incomeReportTotalCount / 100) + 1);
+        }
+
+        private async void btnIncomePreviousPage_Click(object sender, EventArgs e)
+        {
+            if (incomeReportPageNum == 1)
+            {
+                btnIncomeNextPage.Enabled = false;
+                return;
+            }
+
+            incomeReportPageNum--;
+            btnIncomeNextPage.Enabled = true;
+
+            var data = await GetIncomeReport(incomeReportPageNum);
+
+            dataGridIncomeReport.DataSource = data;
+
+            lblIncomeReportPage.Text = "Sayfa: " + incomeReportPageNum.ToString() + "/" + ((incomeReportTotalCount / 100) + 1);
+        }
+
+        private async Task<List<FIBAIncome>> GetIncomeReport(int page = 1, int take = 100)
+        {
+            return await Core.database.FIBAIncome
+                 .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeDocSerialNo.Text), x => x.DocumentSerialNo == txtRprIncomeDocSerialNo.Text)
+                 .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeCompanyCode.Text), x => x.CompanyCode == txtRprIncomeCompanyCode.Text)
+                 .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeNationalIdNo.Text), x => x.NationalIdentityNo == txtRprIncomeNationalIdNo.Text)
+                 .WhereIf(chkIncludeIncomeDates.Checked, x => x.CreatedDate >= dtIncomeStartDate.Value && x.CreatedDate <= dtIncomeEndDate.Value)
+                 .WhereIf(cmbIncomeSuccessStatus.SelectedIndex == 1, x => x.IsSuccessFlag == true)
+                 .WhereIf(cmbIncomeSuccessStatus.SelectedIndex == 2, x => x.IsSuccessFlag == false)
+                 .WhereIf(cmbIncomeSendFlag.SelectedIndex == 1, x => x.IsSent == true)
+                 .WhereIf(cmbIncomeSendFlag.SelectedIndex == 2, x => x.IsSent == false)
+                 .OrderBy(x => x.CreatedDate)
+                 .Skip((page - 1) * 100)
+                 .Take(take)
+                 .ToListAsync();
+        }
     }
 }
