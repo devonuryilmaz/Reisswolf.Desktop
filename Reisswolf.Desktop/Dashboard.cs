@@ -324,9 +324,12 @@ namespace Reisswolf.Desktop
                             var failBarcodes = sentBarcodes.Where(x => !responseModel.barcodeList.Contains(x)).ToList();
                             failDatas = failBarcodes;
 
-                            Core.database.FIBAOutgoing.AddRange(sendedDatas);
-                            Core.database.FIBAIncome.AddOrUpdate(sendedIncomeDatas.ToArray());
-                            await Core.database.SaveChangesAsync();
+                            if (sendedDatas.Count > 0)
+                            {
+                                Core.database.FIBAOutgoing.AddRange(sendedDatas);
+                                Core.database.FIBAIncome.AddOrUpdate(sendedIncomeDatas.ToArray());
+                                await Core.database.SaveChangesAsync();
+                            }
                         }
                         else
                         {
