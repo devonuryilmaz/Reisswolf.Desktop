@@ -317,9 +317,12 @@ namespace Reisswolf.Desktop
                                 }
                             }
 
-                            Core.database.FIBAOutgoing.AddRange(sendedDatas);
-                            Core.database.FIBAIncome.AddOrUpdate(sendedIncomeDatas.ToArray());
-                            await Core.database.SaveChangesAsync();
+                            if (sendedDatas.Count > 0)
+                            {
+                                Core.database.FIBAOutgoing.AddRange(sendedDatas);
+                                Core.database.FIBAIncome.AddOrUpdate(sendedIncomeDatas.ToArray());
+                                await Core.database.SaveChangesAsync();
+                            }
                         }
 
                         lblProgressBar.Text = "İşlem tamamlandı!";

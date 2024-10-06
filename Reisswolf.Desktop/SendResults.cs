@@ -18,14 +18,20 @@ namespace Reisswolf.Desktop
         {
             InitializeComponent();
 
-            foreach (var successItem in successList)
+            if (successList != null)
             {
-                successListView.Items.Add(new ListViewItem(successItem));
+                foreach (var successItem in successList)
+                {
+                    successListView.Items.Add(new ListViewItem(successItem));
+                }
             }
 
-            foreach (var failItem in failList)
+            if (failList != null)
             {
-                failListView.Items.Add(new ListViewItem(new[] {failItem.Key, failItem.Value}));
+                foreach (var failItem in failList)
+                {
+                    failListView.Items.Add(new ListViewItem(new[] { failItem.Key, failItem.Value }));
+                }
             }
         }
     }
