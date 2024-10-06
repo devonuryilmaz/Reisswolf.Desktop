@@ -35,14 +35,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.tabMofMovements = new MetroFramework.Controls.MetroTabPage();
+            this.lblRecordCount = new MetroFramework.Controls.MetroLabel();
             this.btnClearFields = new MetroFramework.Controls.MetroButton();
             this.lblProgressBar = new MetroFramework.Controls.MetroLabel();
             this.sendDataProgressBar = new MetroFramework.Controls.MetroProgressBar();
             this.btnGetSavedData = new MetroFramework.Controls.MetroButton();
             this.btnGetDataFromDb = new MetroFramework.Controls.MetroButton();
             this.btnSaveList = new MetroFramework.Controls.MetroButton();
-            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.lblTotalRecordCount = new MetroFramework.Controls.MetroLabel();
             this.dataGridScannedBarcodes = new System.Windows.Forms.DataGridView();
             this.ScannedBarcodeCourierArchive = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ScannedArchiveNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +60,10 @@
             this.lblBarcode = new MetroFramework.Controls.MetroLabel();
             this.txtBarcode = new MetroFramework.Controls.MetroTextBox();
             this.tabIncomeData = new MetroFramework.Controls.MetroTabPage();
+            this.lblIncomeReportPage = new MetroFramework.Controls.MetroLabel();
+            this.btnIncomePreviousPage = new MetroFramework.Controls.MetroButton();
+            this.btnIncomeNextPage = new MetroFramework.Controls.MetroButton();
+            this.lblIncomeReportTotalRecord = new MetroFramework.Controls.MetroLabel();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
             this.cmbIncomeSuccessStatus = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
@@ -88,6 +92,7 @@
             this.ItWillScanFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.fIBAIncomeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabSentData = new MetroFramework.Controls.MetroTabPage();
+            this.lblOutgoingReportTotalRecord = new MetroFramework.Controls.MetroLabel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.txtRprOutgoingCompanyCode = new MetroFramework.Controls.MetroTextBox();
@@ -149,14 +154,14 @@
             // 
             // tabMofMovements
             // 
+            this.tabMofMovements.Controls.Add(this.lblRecordCount);
             this.tabMofMovements.Controls.Add(this.btnClearFields);
             this.tabMofMovements.Controls.Add(this.lblProgressBar);
             this.tabMofMovements.Controls.Add(this.sendDataProgressBar);
             this.tabMofMovements.Controls.Add(this.btnGetSavedData);
             this.tabMofMovements.Controls.Add(this.btnGetDataFromDb);
             this.tabMofMovements.Controls.Add(this.btnSaveList);
-            this.tabMofMovements.Controls.Add(this.metroLabel8);
-            this.tabMofMovements.Controls.Add(this.metroLabel6);
+            this.tabMofMovements.Controls.Add(this.lblTotalRecordCount);
             this.tabMofMovements.Controls.Add(this.dataGridScannedBarcodes);
             this.tabMofMovements.Controls.Add(this.btnSend);
             this.tabMofMovements.Controls.Add(this.metroLabel2);
@@ -177,6 +182,17 @@
             this.tabMofMovements.VerticalScrollbarBarColor = true;
             this.tabMofMovements.VerticalScrollbarHighlightOnWheel = false;
             this.tabMofMovements.VerticalScrollbarSize = 10;
+            // 
+            // lblRecordCount
+            // 
+            this.lblRecordCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblRecordCount.AutoSize = true;
+            this.lblRecordCount.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblRecordCount.Location = new System.Drawing.Point(3, 561);
+            this.lblRecordCount.Name = "lblRecordCount";
+            this.lblRecordCount.Size = new System.Drawing.Size(145, 19);
+            this.lblRecordCount.TabIndex = 20;
+            this.lblRecordCount.Text = "Gösterilen Kayıt Sayısı:";
             // 
             // btnClearFields
             // 
@@ -244,25 +260,16 @@
             this.btnSaveList.UseSelectable = true;
             this.btnSaveList.Click += new System.EventHandler(this.btnSaveList_ClickAsync);
             // 
-            // metroLabel8
+            // lblTotalRecordCount
             // 
-            this.metroLabel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.metroLabel8.AutoSize = true;
-            this.metroLabel8.Location = new System.Drawing.Point(3, 547);
-            this.metroLabel8.Name = "metroLabel8";
-            this.metroLabel8.Size = new System.Drawing.Size(289, 19);
-            this.metroLabel8.TabIndex = 15;
-            this.metroLabel8.Text = "İlk açıldığında gönderimi bekleyen var mı bi bak";
-            // 
-            // metroLabel6
-            // 
-            this.metroLabel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(3, 566);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(156, 19);
-            this.metroLabel6.TabIndex = 13;
-            this.metroLabel6.Text = "Taranacaksa POPUP AÇ! ";
+            this.lblTotalRecordCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblTotalRecordCount.AutoSize = true;
+            this.lblTotalRecordCount.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblTotalRecordCount.Location = new System.Drawing.Point(3, 542);
+            this.lblTotalRecordCount.Name = "lblTotalRecordCount";
+            this.lblTotalRecordCount.Size = new System.Drawing.Size(127, 19);
+            this.lblTotalRecordCount.TabIndex = 15;
+            this.lblTotalRecordCount.Text = "Toplam Kayıt Sayısı:";
             // 
             // dataGridScannedBarcodes
             // 
@@ -490,6 +497,10 @@
             // 
             // tabIncomeData
             // 
+            this.tabIncomeData.Controls.Add(this.lblIncomeReportPage);
+            this.tabIncomeData.Controls.Add(this.btnIncomePreviousPage);
+            this.tabIncomeData.Controls.Add(this.btnIncomeNextPage);
+            this.tabIncomeData.Controls.Add(this.lblIncomeReportTotalRecord);
             this.tabIncomeData.Controls.Add(this.metroPanel2);
             this.tabIncomeData.Controls.Add(this.dataGridIncomeReport);
             this.tabIncomeData.HorizontalScrollbarBarColor = true;
@@ -503,6 +514,58 @@
             this.tabIncomeData.VerticalScrollbarBarColor = true;
             this.tabIncomeData.VerticalScrollbarHighlightOnWheel = false;
             this.tabIncomeData.VerticalScrollbarSize = 10;
+            this.tabIncomeData.Enter += new System.EventHandler(this.tabIncomeData_Enter);
+            // 
+            // lblIncomeReportPage
+            // 
+            this.lblIncomeReportPage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblIncomeReportPage.AutoSize = true;
+            this.lblIncomeReportPage.Location = new System.Drawing.Point(915, 103);
+            this.lblIncomeReportPage.Name = "lblIncomeReportPage";
+            this.lblIncomeReportPage.Size = new System.Drawing.Size(43, 19);
+            this.lblIncomeReportPage.TabIndex = 28;
+            this.lblIncomeReportPage.Text = "Sayfa:";
+            // 
+            // btnIncomePreviousPage
+            // 
+            this.btnIncomePreviousPage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnIncomePreviousPage.BackgroundImage = global::Reisswolf.Desktop.Properties.Resources.Actions_go_previous_icon;
+            this.btnIncomePreviousPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnIncomePreviousPage.Location = new System.Drawing.Point(1015, 102);
+            this.btnIncomePreviousPage.MaximumSize = new System.Drawing.Size(25, 20);
+            this.btnIncomePreviousPage.Name = "btnIncomePreviousPage";
+            this.btnIncomePreviousPage.Size = new System.Drawing.Size(25, 20);
+            this.btnIncomePreviousPage.TabIndex = 27;
+            this.btnIncomePreviousPage.UseSelectable = true;
+            this.btnIncomePreviousPage.Click += new System.EventHandler(this.btnIncomePreviousPage_Click);
+            // 
+            // btnIncomeNextPage
+            // 
+            this.btnIncomeNextPage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnIncomeNextPage.BackgroundImage = global::Reisswolf.Desktop.Properties.Resources.Actions_go_next_icon;
+            this.btnIncomeNextPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnIncomeNextPage.Location = new System.Drawing.Point(1045, 102);
+            this.btnIncomeNextPage.MaximumSize = new System.Drawing.Size(25, 20);
+            this.btnIncomeNextPage.Name = "btnIncomeNextPage";
+            this.btnIncomeNextPage.Size = new System.Drawing.Size(25, 20);
+            this.btnIncomeNextPage.TabIndex = 26;
+            this.btnIncomeNextPage.UseSelectable = true;
+            this.btnIncomeNextPage.Click += new System.EventHandler(this.btnIncomeNextPage_Click);
+            // 
+            // lblIncomeReportTotalRecord
+            // 
+            this.lblIncomeReportTotalRecord.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblIncomeReportTotalRecord.AutoSize = true;
+            this.lblIncomeReportTotalRecord.Location = new System.Drawing.Point(0, 103);
+            this.lblIncomeReportTotalRecord.Name = "lblIncomeReportTotalRecord";
+            this.lblIncomeReportTotalRecord.Size = new System.Drawing.Size(121, 19);
+            this.lblIncomeReportTotalRecord.TabIndex = 16;
+            this.lblIncomeReportTotalRecord.Text = "Toplam Kayıt Sayısı:";
             // 
             // metroPanel2
             // 
@@ -788,7 +851,7 @@
             this.ModifyDate,
             this.ItWillScanFlag});
             this.dataGridIncomeReport.DataSource = this.fIBAIncomeBindingSource;
-            this.dataGridIncomeReport.Location = new System.Drawing.Point(0, 120);
+            this.dataGridIncomeReport.Location = new System.Drawing.Point(0, 125);
             this.dataGridIncomeReport.Name = "dataGridIncomeReport";
             this.dataGridIncomeReport.ReadOnly = true;
             this.dataGridIncomeReport.Size = new System.Drawing.Size(1073, 518);
@@ -863,6 +926,7 @@
             // 
             // tabSentData
             // 
+            this.tabSentData.Controls.Add(this.lblOutgoingReportTotalRecord);
             this.tabSentData.Controls.Add(this.metroPanel1);
             this.tabSentData.Controls.Add(this.dataGridSentReport);
             this.tabSentData.HorizontalScrollbarBarColor = true;
@@ -876,6 +940,18 @@
             this.tabSentData.VerticalScrollbarBarColor = true;
             this.tabSentData.VerticalScrollbarHighlightOnWheel = false;
             this.tabSentData.VerticalScrollbarSize = 10;
+            // 
+            // lblOutgoingReportTotalRecord
+            // 
+            this.lblOutgoingReportTotalRecord.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblOutgoingReportTotalRecord.AutoSize = true;
+            this.lblOutgoingReportTotalRecord.Location = new System.Drawing.Point(0, 103);
+            this.lblOutgoingReportTotalRecord.Name = "lblOutgoingReportTotalRecord";
+            this.lblOutgoingReportTotalRecord.Size = new System.Drawing.Size(121, 19);
+            this.lblOutgoingReportTotalRecord.TabIndex = 17;
+            this.lblOutgoingReportTotalRecord.Text = "Toplam Kayıt Sayısı:";
             // 
             // metroPanel1
             // 
@@ -1259,7 +1335,7 @@
             this.sentTimeDataGridViewTextBoxColumn,
             this.statusDataGridViewTextBoxColumn});
             this.dataGridSentReport.DataSource = this.fIBAOutgoingBindingSource;
-            this.dataGridSentReport.Location = new System.Drawing.Point(0, 120);
+            this.dataGridSentReport.Location = new System.Drawing.Point(0, 125);
             this.dataGridSentReport.Name = "dataGridSentReport";
             this.dataGridSentReport.ReadOnly = true;
             this.dataGridSentReport.Size = new System.Drawing.Size(1073, 518);
@@ -1366,11 +1442,13 @@
             this.tabMofMovements.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridScannedBarcodes)).EndInit();
             this.tabIncomeData.ResumeLayout(false);
+            this.tabIncomeData.PerformLayout();
             this.metroPanel2.ResumeLayout(false);
             this.metroPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridIncomeReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fIBAIncomeBindingSource)).EndInit();
             this.tabSentData.ResumeLayout(false);
+            this.tabSentData.PerformLayout();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSentReport)).EndInit();
@@ -1394,8 +1472,6 @@
         private MetroFramework.Controls.MetroButton btnSend;
         private System.Windows.Forms.DataGridView dataGridScannedBarcodes;
         private MetroFramework.Controls.MetroButton btnSaveList;
-        private MetroFramework.Controls.MetroLabel metroLabel8;
-        private MetroFramework.Controls.MetroLabel metroLabel6;
         public System.Windows.Forms.ColumnHeader ColDocumentSerialNo;
         private MetroFramework.Controls.MetroButton btnGetDataFromDb;
         private System.Windows.Forms.BindingSource fIBAOutgoingBindingSource;
@@ -1469,5 +1545,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ModifiedUserName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ModifyDate;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ItWillScanFlag;
+        private MetroFramework.Controls.MetroLabel lblRecordCount;
+        private MetroFramework.Controls.MetroLabel lblTotalRecordCount;
+        private MetroFramework.Controls.MetroLabel lblIncomeReportTotalRecord;
+        private MetroFramework.Controls.MetroLabel lblOutgoingReportTotalRecord;
+        private MetroFramework.Controls.MetroButton btnIncomeNextPage;
+        private MetroFramework.Controls.MetroButton btnIncomePreviousPage;
+        private MetroFramework.Controls.MetroLabel lblIncomeReportPage;
     }
 }
