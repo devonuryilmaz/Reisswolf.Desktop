@@ -312,7 +312,8 @@ namespace Reisswolf.Desktop
                                 }
                                 else
                                 {
-                                    failDatas.Add(data.DocumentSerialNo, data.Message);
+                                    index++;
+                                    failDatas.Add(data.DocumentSerialNo ?? index.ToString(), data.Message);
                                 }
                             }
 
@@ -340,6 +341,11 @@ namespace Reisswolf.Desktop
                 {
                     //_logger.LogInformation("PdfError");
                     //_logger.LogInformation(JsonConvert.SerializeObject(ex));
+
+                    var message = ex.InnerException != null ? ex.InnerException.InnerException.Message : ex.Message;
+
+                    MessageBox.Show($"Veriler Gönderilirken Hata Oluştu.\n Hata: {message}", "Veri Gönderimi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    sendDataProgressBar.Visible = lblProgressBar.Visible = false;
                 }
             }
         }
