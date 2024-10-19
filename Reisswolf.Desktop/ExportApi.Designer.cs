@@ -12,7 +12,7 @@ namespace Reisswolf.Desktop {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.4.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.9.0.0")]
     internal sealed partial class ExportApi : global::System.Configuration.ApplicationSettingsBase {
         
         private static ExportApi defaultInstance = ((ExportApi)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new ExportApi())));

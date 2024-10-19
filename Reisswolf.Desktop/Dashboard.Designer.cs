@@ -703,7 +703,7 @@
             this.dtIncomeEndDate.Location = new System.Drawing.Point(298, 62);
             this.dtIncomeEndDate.MaxDate = new System.DateTime(2029, 12, 31, 0, 0, 0, 0);
             this.dtIncomeEndDate.MinDate = new System.DateTime(2009, 12, 31, 0, 0, 0, 0);
-            this.dtIncomeEndDate.MinimumSize = new System.Drawing.Size(0, 25);
+            this.dtIncomeEndDate.MinimumSize = new System.Drawing.Size(4, 25);
             this.dtIncomeEndDate.Name = "dtIncomeEndDate";
             this.dtIncomeEndDate.Size = new System.Drawing.Size(177, 25);
             this.dtIncomeEndDate.TabIndex = 29;
@@ -717,7 +717,7 @@
             this.dtIncomeStartDate.Location = new System.Drawing.Point(119, 62);
             this.dtIncomeStartDate.MaxDate = new System.DateTime(2029, 12, 31, 0, 0, 0, 0);
             this.dtIncomeStartDate.MinDate = new System.DateTime(2009, 12, 31, 0, 0, 0, 0);
-            this.dtIncomeStartDate.MinimumSize = new System.Drawing.Size(0, 25);
+            this.dtIncomeStartDate.MinimumSize = new System.Drawing.Size(4, 25);
             this.dtIncomeStartDate.Name = "dtIncomeStartDate";
             this.dtIncomeStartDate.Size = new System.Drawing.Size(173, 25);
             this.dtIncomeStartDate.TabIndex = 28;
