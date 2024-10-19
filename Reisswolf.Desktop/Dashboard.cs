@@ -64,7 +64,11 @@ namespace Reisswolf.Desktop
                     {
                         incomeData = Core.database.FIBAIncome.FirstOrDefault(x => x.DocumentSerialNo == barcode && x.IsSent == false);
                         if (incomeData != null)
-                            listView1.Items.Insert(0, incomeData.DocumentSerialNo, incomeData.DocumentSerialNo, "");
+                            if (incomeData != null)
+                            {
+                                incomesData.Add(incomeData);
+                                listView1.Items.Insert(0, incomeData.DocumentSerialNo, incomeData.DocumentSerialNo, "");
+                            }
                     }
 
                     var nationalIdentityNo = incomeData != null && !string.IsNullOrWhiteSpace(incomeData.NationalIdentityNo) ? incomeData.NationalIdentityNo : string.Empty;
