@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -139,6 +140,10 @@ namespace Reisswolf.Desktop
 
         private async void btnSend_Click(object sender, EventArgs e)
         {
+
+            successListView.Items.Clear();
+            unsuccessListView.Items.Clear();
+
             await SendData();
         }
 
@@ -307,7 +312,7 @@ namespace Reisswolf.Desktop
                                         ParcelCodeArchiveNo = txtArchiveNo.Text,
                                         BatchNumber = batchNumber,
                                         SentTime = sentTime,
-                                        IsScanned = true,
+                                        IsScanned = !incomeData.ItWillScanFlag,
                                         Status = (int)EnumOutgoingStatus.Sent,
                                         NationalIdentityNo = incomeData != null && !string.IsNullOrWhiteSpace(incomeData.NationalIdentityNo) ? incomeData.NationalIdentityNo : "",
                                         CompanyCode = incomeData != null && !string.IsNullOrWhiteSpace(incomeData.CompanyCode) ? incomeData.CompanyCode : "",
@@ -345,6 +350,14 @@ namespace Reisswolf.Desktop
                         lblProgressBar.Text = "İşlem tamamlandı!";
                         sendDataProgressBar.Value = 100;
                         sendDataProgressBar.Update();
+
+                        successListView.Items.Clear();
+                        unsuccessListView.Items.Clear();
+
+                        panel1.Visible = true;
+
+                        successDatas.ForEach(x => successListView.Items.Add(x));
+                        failDatas.Values.ToList().ForEach(x => unsuccessListView.Items.Add(x));
 
                         MessageBox.Show("Veriler Gönderildi.", "Veri Gönderimi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         //if (DialogResult.OK == MessageBox.Show("Veriler Gönderildi.", "Veri Gönderimi", MessageBoxButtons.OK, MessageBoxIcon.Information))
@@ -564,26 +577,40 @@ namespace Reisswolf.Desktop
             lblOutgoingReportTotalRecord.Text = "Toplam Kayıt Sayısı: " + data.Count;
         }
 
-        private async void FilterForIncomeData()
+        private void FilterForIncomeData()
         {
-            var count = Core.database.FIBAIncome
-                 .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeDocSerialNo.Text), x => x.DocumentSerialNo == txtRprIncomeDocSerialNo.Text)
-                 .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeCompanyCode.Text), x => x.CompanyCode == txtRprIncomeCompanyCode.Text)
-                 .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeNationalIdNo.Text), x => x.NationalIdentityNo == txtRprIncomeNationalIdNo.Text)
-                 .WhereIf(chkIncludeIncomeDates.Checked, x => x.CreatedDate >= dtIncomeStartDate.Value && x.CreatedDate <= dtIncomeEndDate.Value)
-                 .WhereIf(cmbIncomeSuccessStatus.SelectedIndex == 1, x => x.IsSuccessFlag == true)
-                 .WhereIf(cmbIncomeSuccessStatus.SelectedIndex == 2, x => x.IsSuccessFlag == false)
-                 .WhereIf(cmbIncomeSendFlag.SelectedIndex == 1, x => x.IsSent == true)
-                 .WhereIf(cmbIncomeSendFlag.SelectedIndex == 2, x => x.IsSent == false).Count();
-
-            var data = await GetIncomeReport();
-
-            incomeReportTotalCount = count;
-            dataGridIncomeReport.DataSource = data;
-            lblIncomeReportTotalRecord.Text = "Toplam Kayıt Sayısı: " + count;
-            lblIncomeReportPage.Text = "Sayfa: 1/" + ((count / 100) + 1);
-            btnIncomeNextPage.Enabled = true;
+            dataGridIncomeReport.DataSource = Core.database.FIBAIncome
+                    .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeDocSerialNo.Text), x => x.DocumentSerialNo == txtRprIncomeDocSerialNo.Text)
+                    .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeCompanyCode.Text), x => x.CompanyCode == txtRprIncomeCompanyCode.Text)
+                    .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeNationalIdNo.Text), x => x.NationalIdentityNo == txtRprIncomeNationalIdNo.Text)
+                    .WhereIf(chkIncludeIncomeDates.Checked, x => x.CreatedDate >= dtIncomeStartDate.Value && x.CreatedDate <= dtIncomeEndDate.Value)
+                    .WhereIf(cmbIncomeSuccessStatus.SelectedIndex == 1, x => x.IsSuccessFlag == true)
+                    .WhereIf(cmbIncomeSuccessStatus.SelectedIndex == 2, x => x.IsSuccessFlag == false)
+                    .WhereIf(cmbIncomeSendFlag.SelectedIndex == 1, x => x.IsSent == true)
+                    .WhereIf(cmbIncomeSendFlag.SelectedIndex == 2, x => x.IsSent == false)
+                 .ToList();
         }
+
+        //private async void FilterForIncomeData()
+        //{
+        //    var count = Core.database.FIBAIncome
+        //         .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeDocSerialNo.Text), x => x.DocumentSerialNo == txtRprIncomeDocSerialNo.Text)
+        //         .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeCompanyCode.Text), x => x.CompanyCode == txtRprIncomeCompanyCode.Text)
+        //         .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeNationalIdNo.Text), x => x.NationalIdentityNo == txtRprIncomeNationalIdNo.Text)
+        //         .WhereIf(chkIncludeIncomeDates.Checked, x => x.CreatedDate >= dtIncomeStartDate.Value && x.CreatedDate <= dtIncomeEndDate.Value)
+        //         .WhereIf(cmbIncomeSuccessStatus.SelectedIndex == 1, x => x.IsSuccessFlag == true)
+        //         .WhereIf(cmbIncomeSuccessStatus.SelectedIndex == 2, x => x.IsSuccessFlag == false)
+        //         .WhereIf(cmbIncomeSendFlag.SelectedIndex == 1, x => x.IsSent == true)
+        //         .WhereIf(cmbIncomeSendFlag.SelectedIndex == 2, x => x.IsSent == false).Count();
+
+        //    var data = await GetIncomeReport();
+
+        //    incomeReportTotalCount = count;
+        //    dataGridIncomeReport.DataSource = data;
+        //    lblIncomeReportTotalRecord.Text = "Toplam Kayıt Sayısı: " + count;
+        //    lblIncomeReportPage.Text = "Sayfa: 1/" + ((count / 100) + 1);
+        //    btnIncomeNextPage.Enabled = true;
+        //}
 
         private void btnIncomeDataExportToExcel_Click(object sender, EventArgs e)
         {
@@ -729,6 +756,32 @@ namespace Reisswolf.Desktop
                  .Skip((page - 1) * 100)
                  .Take(take)
                  .ToListAsync();
+        }
+
+        private void successListView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                CopyListBox(successListView);
+            }
+        }
+
+        public void CopyListBox(ListView list)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine(list.FocusedItem.Text);
+
+            Clipboard.SetDataObject(sb.ToString());
+
+        }
+
+        private void unsuccessListView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                CopyListBox(unsuccessListView);
+            }
         }
     }
 }
