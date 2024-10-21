@@ -585,26 +585,40 @@ namespace Reisswolf.Desktop
             lblOutgoingReportTotalRecord.Text = "Toplam Kayıt Sayısı: " + data.Count;
         }
 
-        private async void FilterForIncomeData()
+        private void FilterForIncomeData()
         {
-            var count = Core.database.FIBAIncome
-                 .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeDocSerialNo.Text), x => x.DocumentSerialNo == txtRprIncomeDocSerialNo.Text)
+            dataGridIncomeReport.DataSource = Core.database.FIBAIncome
+                .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeDocSerialNo.Text), x => x.DocumentSerialNo == txtRprIncomeDocSerialNo.Text)
                  .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeCompanyCode.Text), x => x.CompanyCode == txtRprIncomeCompanyCode.Text)
                  .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeNationalIdNo.Text), x => x.NationalIdentityNo == txtRprIncomeNationalIdNo.Text)
                  .WhereIf(chkIncludeIncomeDates.Checked, x => x.CreatedDate >= dtIncomeStartDate.Value && x.CreatedDate <= dtIncomeEndDate.Value)
                  .WhereIf(cmbIncomeSuccessStatus.SelectedIndex == 1, x => x.IsSuccessFlag == true)
                  .WhereIf(cmbIncomeSuccessStatus.SelectedIndex == 2, x => x.IsSuccessFlag == false)
                  .WhereIf(cmbIncomeSendFlag.SelectedIndex == 1, x => x.IsSent == true)
-                 .WhereIf(cmbIncomeSendFlag.SelectedIndex == 2, x => x.IsSent == false).Count();
-
-            var data = await GetIncomeReport();
-
-            incomeReportTotalCount = count;
-            dataGridIncomeReport.DataSource = data;
-            lblIncomeReportTotalRecord.Text = "Toplam Kayıt Sayısı: " + count;
-            lblIncomeReportPage.Text = "Sayfa: 1/" + ((count / 100) + 1);
-            btnIncomeNextPage.Enabled = true;
+                 .WhereIf(cmbIncomeSendFlag.SelectedIndex == 2, x => x.IsSent == false)
+                 .ToList();
         }
+
+        //private async void FilterForIncomeData()
+        //{
+        //    var count = Core.database.FIBAIncome
+        //         .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeDocSerialNo.Text), x => x.DocumentSerialNo == txtRprIncomeDocSerialNo.Text)
+        //         .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeCompanyCode.Text), x => x.CompanyCode == txtRprIncomeCompanyCode.Text)
+        //         .WhereIf(!string.IsNullOrWhiteSpace(txtRprIncomeNationalIdNo.Text), x => x.NationalIdentityNo == txtRprIncomeNationalIdNo.Text)
+        //         .WhereIf(chkIncludeIncomeDates.Checked, x => x.CreatedDate >= dtIncomeStartDate.Value && x.CreatedDate <= dtIncomeEndDate.Value)
+        //         .WhereIf(cmbIncomeSuccessStatus.SelectedIndex == 1, x => x.IsSuccessFlag == true)
+        //         .WhereIf(cmbIncomeSuccessStatus.SelectedIndex == 2, x => x.IsSuccessFlag == false)
+        //         .WhereIf(cmbIncomeSendFlag.SelectedIndex == 1, x => x.IsSent == true)
+        //         .WhereIf(cmbIncomeSendFlag.SelectedIndex == 2, x => x.IsSent == false).Count();
+
+        //    var data = await GetIncomeReport();
+
+        //    incomeReportTotalCount = count;
+        //    dataGridIncomeReport.DataSource = data;
+        //    lblIncomeReportTotalRecord.Text = "Toplam Kayıt Sayısı: " + count;
+        //    lblIncomeReportPage.Text = "Sayfa: 1/" + ((count / 100) + 1);
+        //    btnIncomeNextPage.Enabled = true;
+        //}
 
         private void btnIncomeDataExportToExcel_Click(object sender, EventArgs e)
         {
