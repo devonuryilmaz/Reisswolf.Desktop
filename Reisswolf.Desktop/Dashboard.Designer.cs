@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("DocumentSerialNo", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("DocumentSerialNo", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.tabMofMovements = new MetroFramework.Controls.MetroTabPage();
             this.lblRecordCount = new MetroFramework.Controls.MetroLabel();
@@ -44,12 +42,6 @@
             this.btnSaveList = new MetroFramework.Controls.MetroButton();
             this.lblTotalRecordCount = new MetroFramework.Controls.MetroLabel();
             this.dataGridScannedBarcodes = new System.Windows.Forms.DataGridView();
-            this.ScannedBarcodeCourierArchive = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ScannedArchiveNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ScannedDocumentSerialNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ScannedNationalIdentityNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ScannedCompanyCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ScannedItWillScanFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnSend = new MetroFramework.Controls.MetroButton();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.txtCourrierNo = new MetroFramework.Controls.MetroTextBox();
@@ -82,15 +74,11 @@
             this.btnIncomeDataExportToExcel = new MetroFramework.Controls.MetroButton();
             this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
             this.dataGridIncomeReport = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedByUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ModifiedUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ModifyDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItWillScanFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.fIBAIncomeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabSentData = new MetroFramework.Controls.MetroTabPage();
             this.lblOutgoingReportTotalRecord = new MetroFramework.Controls.MetroLabel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
@@ -115,6 +103,17 @@
             this.btnSentDataExportToExcel = new MetroFramework.Controls.MetroButton();
             this.txtReportCourrierNo = new MetroFramework.Controls.MetroTextBox();
             this.dataGridSentReport = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ScannedBarcodeCourierArchive = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ScannedArchiveNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ScannedDocumentSerialNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ScannedNationalIdentityNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ScannedCompanyCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ScannedItWillScanFlag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fIBAIncomeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ısScannedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.barcodeCourrierArchiveNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.parcelCodeArchiveNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -125,17 +124,16 @@
             this.sentTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fIBAOutgoingBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTabControl1.SuspendLayout();
             this.tabMofMovements.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridScannedBarcodes)).BeginInit();
             this.tabIncomeData.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridIncomeReport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fIBAIncomeBindingSource)).BeginInit();
             this.tabSentData.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSentReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fIBAIncomeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fIBAOutgoingBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,7 +145,7 @@
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(20, 60);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 2;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(1084, 676);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
@@ -293,53 +291,6 @@
             this.dataGridScannedBarcodes.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridScannedBarcodes_RowsAdded);
             this.dataGridScannedBarcodes.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridScannedBarcodes_RowsRemoved);
             // 
-            // ScannedBarcodeCourierArchive
-            // 
-            this.ScannedBarcodeCourierArchive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ScannedBarcodeCourierArchive.HeaderText = "Kurye Barkod No";
-            this.ScannedBarcodeCourierArchive.Name = "ScannedBarcodeCourierArchive";
-            this.ScannedBarcodeCourierArchive.ReadOnly = true;
-            // 
-            // ScannedArchiveNo
-            // 
-            this.ScannedArchiveNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ScannedArchiveNo.HeaderText = "Arşiv Koli No";
-            this.ScannedArchiveNo.Name = "ScannedArchiveNo";
-            this.ScannedArchiveNo.ReadOnly = true;
-            // 
-            // ScannedDocumentSerialNo
-            // 
-            this.ScannedDocumentSerialNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ScannedDocumentSerialNo.HeaderText = "MOF Barkodu";
-            this.ScannedDocumentSerialNo.Name = "ScannedDocumentSerialNo";
-            this.ScannedDocumentSerialNo.ReadOnly = true;
-            // 
-            // ScannedNationalIdentityNo
-            // 
-            this.ScannedNationalIdentityNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.NullValue = " ";
-            this.ScannedNationalIdentityNo.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ScannedNationalIdentityNo.HeaderText = "TCKN";
-            this.ScannedNationalIdentityNo.Name = "ScannedNationalIdentityNo";
-            this.ScannedNationalIdentityNo.ReadOnly = true;
-            // 
-            // ScannedCompanyCode
-            // 
-            this.ScannedCompanyCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.NullValue = " ";
-            this.ScannedCompanyCode.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ScannedCompanyCode.HeaderText = "Company Code";
-            this.ScannedCompanyCode.Name = "ScannedCompanyCode";
-            this.ScannedCompanyCode.ReadOnly = true;
-            // 
-            // ScannedItWillScanFlag
-            // 
-            this.ScannedItWillScanFlag.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.ScannedItWillScanFlag.HeaderText = "Taranacak";
-            this.ScannedItWillScanFlag.Name = "ScannedItWillScanFlag";
-            this.ScannedItWillScanFlag.ReadOnly = true;
-            this.ScannedItWillScanFlag.Width = 65;
-            // 
             // btnSend
             // 
             this.btnSend.Enabled = false;
@@ -389,6 +340,7 @@
             this.txtCourrierNo.UseSelectable = true;
             this.txtCourrierNo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtCourrierNo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtCourrierNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCourrierNo_KeyPress);
             // 
             // metroLabel1
             // 
@@ -428,6 +380,7 @@
             this.txtArchiveNo.UseSelectable = true;
             this.txtArchiveNo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtArchiveNo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtArchiveNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtArchiveNo_KeyPress);
             // 
             // listView1
             // 
@@ -437,10 +390,10 @@
             this.ColDocumentSerialNo});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
-            listViewGroup1.Header = "DocumentSerialNo";
-            listViewGroup1.Name = "MOFS";
+            listViewGroup2.Header = "DocumentSerialNo";
+            listViewGroup2.Name = "MOFS";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1});
+            listViewGroup2});
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(315, 32);
             this.listView1.Name = "listView1";
@@ -857,30 +810,6 @@
             this.dataGridIncomeReport.Size = new System.Drawing.Size(1073, 518);
             this.dataGridIncomeReport.TabIndex = 14;
             // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "DocumentSerialNo";
-            this.dataGridViewTextBoxColumn2.HeaderText = "MOF Barkodu";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "NationalIdentityNo";
-            this.dataGridViewTextBoxColumn3.HeaderText = "TCKN";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "CompanyCode";
-            this.dataGridViewTextBoxColumn4.HeaderText = "CompanyCode";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
             // CreatedByUser
             // 
             this.CreatedByUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -919,10 +848,6 @@
             this.ItWillScanFlag.HeaderText = "Taranacak";
             this.ItWillScanFlag.Name = "ItWillScanFlag";
             this.ItWillScanFlag.ReadOnly = true;
-            // 
-            // fIBAIncomeBindingSource
-            // 
-            this.fIBAIncomeBindingSource.DataSource = typeof(Reisswolf.Desktop.FIBAIncome);
             // 
             // tabSentData
             // 
@@ -1341,6 +1266,85 @@
             this.dataGridSentReport.Size = new System.Drawing.Size(1073, 518);
             this.dataGridSentReport.TabIndex = 2;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "CreatedByUser";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Oluşturan Kullanıcı";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // ScannedBarcodeCourierArchive
+            // 
+            this.ScannedBarcodeCourierArchive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ScannedBarcodeCourierArchive.HeaderText = "Kurye Barkod No";
+            this.ScannedBarcodeCourierArchive.Name = "ScannedBarcodeCourierArchive";
+            this.ScannedBarcodeCourierArchive.ReadOnly = true;
+            // 
+            // ScannedArchiveNo
+            // 
+            this.ScannedArchiveNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ScannedArchiveNo.HeaderText = "Arşiv Koli No";
+            this.ScannedArchiveNo.Name = "ScannedArchiveNo";
+            this.ScannedArchiveNo.ReadOnly = true;
+            // 
+            // ScannedDocumentSerialNo
+            // 
+            this.ScannedDocumentSerialNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ScannedDocumentSerialNo.HeaderText = "MOF Barkodu";
+            this.ScannedDocumentSerialNo.Name = "ScannedDocumentSerialNo";
+            this.ScannedDocumentSerialNo.ReadOnly = true;
+            // 
+            // ScannedNationalIdentityNo
+            // 
+            this.ScannedNationalIdentityNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ScannedNationalIdentityNo.HeaderText = "TCKN";
+            this.ScannedNationalIdentityNo.Name = "ScannedNationalIdentityNo";
+            this.ScannedNationalIdentityNo.ReadOnly = true;
+            // 
+            // ScannedCompanyCode
+            // 
+            this.ScannedCompanyCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ScannedCompanyCode.HeaderText = "Company Code";
+            this.ScannedCompanyCode.Name = "ScannedCompanyCode";
+            this.ScannedCompanyCode.ReadOnly = true;
+            // 
+            // ScannedItWillScanFlag
+            // 
+            this.ScannedItWillScanFlag.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.ScannedItWillScanFlag.HeaderText = "Taranacak";
+            this.ScannedItWillScanFlag.Name = "ScannedItWillScanFlag";
+            this.ScannedItWillScanFlag.ReadOnly = true;
+            this.ScannedItWillScanFlag.Width = 65;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "DocumentSerialNo";
+            this.dataGridViewTextBoxColumn2.HeaderText = "MOF Barkodu";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "NationalIdentityNo";
+            this.dataGridViewTextBoxColumn3.HeaderText = "TCKN";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "CompanyCode";
+            this.dataGridViewTextBoxColumn4.HeaderText = "CompanyCode";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // fIBAIncomeBindingSource
+            // 
+            this.fIBAIncomeBindingSource.DataSource = typeof(Reisswolf.Desktop.FIBAIncome);
+            // 
             // ısScannedDataGridViewCheckBoxColumn
             // 
             this.ısScannedDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -1401,9 +1405,9 @@
             // 
             this.sentTimeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.sentTimeDataGridViewTextBoxColumn.DataPropertyName = "SentTime";
-            dataGridViewCellStyle3.Format = "G";
-            dataGridViewCellStyle3.NullValue = null;
-            this.sentTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Format = "G";
+            dataGridViewCellStyle2.NullValue = null;
+            this.sentTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.sentTimeDataGridViewTextBoxColumn.HeaderText = "Gönderim Tarihi";
             this.sentTimeDataGridViewTextBoxColumn.Name = "sentTimeDataGridViewTextBoxColumn";
             this.sentTimeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -1419,14 +1423,6 @@
             // fIBAOutgoingBindingSource
             // 
             this.fIBAOutgoingBindingSource.DataSource = typeof(Reisswolf.Desktop.FIBAOutgoing);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "CreatedByUser";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Oluşturan Kullanıcı";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // Dashboard
             // 
@@ -1446,12 +1442,12 @@
             this.metroPanel2.ResumeLayout(false);
             this.metroPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridIncomeReport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fIBAIncomeBindingSource)).EndInit();
             this.tabSentData.ResumeLayout(false);
             this.tabSentData.PerformLayout();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSentReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fIBAIncomeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fIBAOutgoingBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -1505,12 +1501,6 @@
         private MetroFramework.Controls.MetroTextBox txtRprIncomeDocSerialNo;
         private MetroFramework.Controls.MetroButton btnIncomeDataExportToExcel;
         private System.Windows.Forms.DataGridView dataGridIncomeReport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ScannedBarcodeCourierArchive;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ScannedArchiveNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ScannedDocumentSerialNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ScannedNationalIdentityNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ScannedCompanyCode;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ScannedItWillScanFlag;
         private MetroFramework.Controls.MetroDateTime dtOutGoingEndDate;
         private MetroFramework.Controls.MetroDateTime dtOutGoingStartDate;
         private MetroFramework.Controls.MetroProgressBar sendDataProgressBar;
@@ -1552,5 +1542,11 @@
         private MetroFramework.Controls.MetroButton btnIncomeNextPage;
         private MetroFramework.Controls.MetroButton btnIncomePreviousPage;
         private MetroFramework.Controls.MetroLabel lblIncomeReportPage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ScannedBarcodeCourierArchive;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ScannedArchiveNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ScannedDocumentSerialNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ScannedNationalIdentityNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ScannedCompanyCode;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ScannedItWillScanFlag;
     }
 }

@@ -46,6 +46,19 @@ namespace Reisswolf.Desktop
             base.OnLoad(e);
         }
 
+
+        private void txtCourrierNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                txtArchiveNo.Focus();
+        }
+
+        private void txtArchiveNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                txtBarcode.Focus();
+        }
+
         private void txtBarcode_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (txtArchiveNo.Text == "" || txtCourrierNo.Text == "" || txtBarcode.Text == "")
@@ -93,7 +106,8 @@ namespace Reisswolf.Desktop
                         return;
                     }
 
-                    dataGridScannedBarcodes.Rows.Add(txtCourrierNo.Text, txtArchiveNo.Text, barcode, nationalIdentityNo, companyCode, itWillScanFlag);
+                    dataGridScannedBarcodes.Rows.Insert(0, txtCourrierNo.Text, txtArchiveNo.Text, barcode, nationalIdentityNo, companyCode, itWillScanFlag);
+                    dataGridScannedBarcodes.CurrentCell = dataGridScannedBarcodes.Rows[0].Cells[0];
                     scannedBarcodes.Add(barcode);
                 }
                 txtBarcode.Text = string.Empty;
@@ -344,11 +358,12 @@ namespace Reisswolf.Desktop
                         sendDataProgressBar.Value = 100;
                         sendDataProgressBar.Update();
 
-                        if (DialogResult.OK == MessageBox.Show("Veriler Gönderildi.", "Veri Gönderimi", MessageBoxButtons.OK, MessageBoxIcon.Information))
-                        {
-                            SendResults sr = new SendResults(successDatas, failDatas);
-                            sr.ShowDialog();
-                        }
+                        MessageBox.Show("Veriler Gönderildi.", "Veri Gönderimi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //if (DialogResult.OK == MessageBox.Show("Veriler Gönderildi.", "Veri Gönderimi", MessageBoxButtons.OK, MessageBoxIcon.Information))
+                        //{
+                        //    //SendResults sr = new SendResults(successDatas, failDatas);
+                        //    //sr.ShowDia();
+                        //}
 
                         sendDataProgressBar.Visible = lblProgressBar.Visible = false;
 
