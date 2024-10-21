@@ -33,6 +33,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.tabMofMovements = new MetroFramework.Controls.MetroTabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.unsuccessListView = new System.Windows.Forms.ListView();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.successListView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblRecordCount = new MetroFramework.Controls.MetroLabel();
             this.btnClearFields = new MetroFramework.Controls.MetroButton();
             this.lblProgressBar = new MetroFramework.Controls.MetroLabel();
@@ -126,6 +131,7 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTabControl1.SuspendLayout();
             this.tabMofMovements.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridScannedBarcodes)).BeginInit();
             this.tabIncomeData.SuspendLayout();
             this.metroPanel2.SuspendLayout();
@@ -145,13 +151,14 @@
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(20, 60);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(1084, 676);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
             // 
             // tabMofMovements
             // 
+            this.tabMofMovements.Controls.Add(this.panel1);
             this.tabMofMovements.Controls.Add(this.lblRecordCount);
             this.tabMofMovements.Controls.Add(this.btnClearFields);
             this.tabMofMovements.Controls.Add(this.lblProgressBar);
@@ -180,6 +187,62 @@
             this.tabMofMovements.VerticalScrollbarBarColor = true;
             this.tabMofMovements.VerticalScrollbarHighlightOnWheel = false;
             this.tabMofMovements.VerticalScrollbarSize = 10;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.Controls.Add(this.unsuccessListView);
+            this.panel1.Controls.Add(this.successListView);
+            this.panel1.Location = new System.Drawing.Point(3, 228);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(306, 311);
+            this.panel1.TabIndex = 21;
+            this.panel1.Visible = false;
+            // 
+            // unsuccessListView
+            // 
+            this.unsuccessListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2});
+            this.unsuccessListView.Dock = System.Windows.Forms.DockStyle.Right;
+            this.unsuccessListView.FullRowSelect = true;
+            this.unsuccessListView.GridLines = true;
+            this.unsuccessListView.HideSelection = false;
+            this.unsuccessListView.Location = new System.Drawing.Point(154, 0);
+            this.unsuccessListView.Name = "unsuccessListView";
+            this.unsuccessListView.ShowGroups = false;
+            this.unsuccessListView.Size = new System.Drawing.Size(152, 311);
+            this.unsuccessListView.TabIndex = 11;
+            this.unsuccessListView.UseCompatibleStateImageBehavior = false;
+            this.unsuccessListView.View = System.Windows.Forms.View.Details;
+            this.unsuccessListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.unsuccessListView_KeyDown);
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Başarısız Gönderilenler";
+            this.columnHeader2.Width = 150;
+            // 
+            // successListView
+            // 
+            this.successListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.successListView.Dock = System.Windows.Forms.DockStyle.Left;
+            this.successListView.FullRowSelect = true;
+            this.successListView.GridLines = true;
+            this.successListView.HideSelection = false;
+            this.successListView.Location = new System.Drawing.Point(0, 0);
+            this.successListView.Name = "successListView";
+            this.successListView.ShowGroups = false;
+            this.successListView.Size = new System.Drawing.Size(152, 311);
+            this.successListView.TabIndex = 10;
+            this.successListView.UseCompatibleStateImageBehavior = false;
+            this.successListView.View = System.Windows.Forms.View.Details;
+            this.successListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.successListView_KeyDown);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Başarılı Gönderilenler";
+            this.columnHeader1.Width = 150;
             // 
             // lblRecordCount
             // 
@@ -1440,6 +1503,7 @@
             this.metroTabControl1.ResumeLayout(false);
             this.tabMofMovements.ResumeLayout(false);
             this.tabMofMovements.PerformLayout();
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridScannedBarcodes)).EndInit();
             this.tabIncomeData.ResumeLayout(false);
             this.tabIncomeData.PerformLayout();
@@ -1552,5 +1616,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ScannedNationalIdentityNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ScannedCompanyCode;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ScannedItWillScanFlag;
+        private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.ListView unsuccessListView;
+        public System.Windows.Forms.ColumnHeader columnHeader2;
+        public System.Windows.Forms.ListView successListView;
+        public System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }
