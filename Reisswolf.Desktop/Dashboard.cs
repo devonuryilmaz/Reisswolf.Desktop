@@ -143,6 +143,7 @@ namespace Reisswolf.Desktop
 
             successListView.Items.Clear();
             unsuccessListView.Items.Clear();
+            lblVerilerGonderildi.Visible = false;
 
             await SendData();
         }
@@ -230,6 +231,7 @@ namespace Reisswolf.Desktop
 
         private async Task SendData()
         {
+
             var sentTime = DateTime.Now;
             List<string> sentBarcodes = new List<string>();
             List<FIBAOutgoing> sendedDatas = new List<FIBAOutgoing>();
@@ -354,17 +356,18 @@ namespace Reisswolf.Desktop
                         successListView.Items.Clear();
                         unsuccessListView.Items.Clear();
 
-                        panel1.Visible = true;
+                        //panel1.Visible = true;
 
                         successDatas.ForEach(x => successListView.Items.Add(x));
                         failDatas.Values.ToList().ForEach(x => unsuccessListView.Items.Add(x));
 
-                        MessageBox.Show("Veriler Gönderildi.", "Veri Gönderimi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //if (DialogResult.OK == MessageBox.Show("Veriler Gönderildi.", "Veri Gönderimi", MessageBoxButtons.OK, MessageBoxIcon.Information))
-                        //{
-                        //    //SendResults sr = new SendResults(successDatas, failDatas);
-                        //    //sr.ShowDia();
-                        //}
+                        //lblVerilerGonderildi.Visible= true;
+                        //MessageBox.Show("Veriler Gönderildi.", "Veri Gönderimi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (DialogResult.OK == MessageBox.Show("Veriler Gönderildi.", "Veri Gönderimi", MessageBoxButtons.OK, MessageBoxIcon.Information))
+                        {
+                            SendResults sr = new SendResults(successDatas, failDatas);
+                            sr.ShowDialog();
+                        }
 
                         sendDataProgressBar.Visible = lblProgressBar.Visible = false;
 

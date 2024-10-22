@@ -25,10 +25,12 @@ namespace Reisswolf.Desktop
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
 
-            if (ValidLogin)
-            {
-                Application.Run(new Dashboard());
-            }
+            //if (ValidLogin)
+            //{
+            //    var df = new Dashboard();
+            //    df.Show();
+            //    //Application.Run(new Dashboard());
+            //}
         }
     }
 }

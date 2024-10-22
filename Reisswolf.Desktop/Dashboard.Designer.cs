@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.tabMofMovements = new MetroFramework.Controls.MetroTabPage();
+            this.lblVerilerGonderildi = new MetroFramework.Controls.MetroLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.unsuccessListView = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -151,13 +152,14 @@
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(20, 60);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(1084, 676);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
             // 
             // tabMofMovements
             // 
+            this.tabMofMovements.Controls.Add(this.lblVerilerGonderildi);
             this.tabMofMovements.Controls.Add(this.panel1);
             this.tabMofMovements.Controls.Add(this.lblRecordCount);
             this.tabMofMovements.Controls.Add(this.btnClearFields);
@@ -187,6 +189,18 @@
             this.tabMofMovements.VerticalScrollbarBarColor = true;
             this.tabMofMovements.VerticalScrollbarHighlightOnWheel = false;
             this.tabMofMovements.VerticalScrollbarSize = 10;
+            // 
+            // lblVerilerGonderildi
+            // 
+            this.lblVerilerGonderildi.AutoSize = true;
+            this.lblVerilerGonderildi.BackColor = System.Drawing.Color.Transparent;
+            this.lblVerilerGonderildi.Location = new System.Drawing.Point(406, 7);
+            this.lblVerilerGonderildi.Name = "lblVerilerGonderildi";
+            this.lblVerilerGonderildi.Size = new System.Drawing.Size(115, 19);
+            this.lblVerilerGonderildi.TabIndex = 22;
+            this.lblVerilerGonderildi.Text = "Veriler Gönderildi ";
+            this.lblVerilerGonderildi.UseCustomBackColor = true;
+            this.lblVerilerGonderildi.Visible = false;
             // 
             // panel1
             // 
@@ -766,7 +780,7 @@
             this.dtIncomeEndDate.Location = new System.Drawing.Point(298, 62);
             this.dtIncomeEndDate.MaxDate = new System.DateTime(2029, 12, 31, 0, 0, 0, 0);
             this.dtIncomeEndDate.MinDate = new System.DateTime(2009, 12, 31, 0, 0, 0, 0);
-            this.dtIncomeEndDate.MinimumSize = new System.Drawing.Size(0, 25);
+            this.dtIncomeEndDate.MinimumSize = new System.Drawing.Size(4, 25);
             this.dtIncomeEndDate.Name = "dtIncomeEndDate";
             this.dtIncomeEndDate.Size = new System.Drawing.Size(177, 25);
             this.dtIncomeEndDate.TabIndex = 29;
@@ -780,7 +794,7 @@
             this.dtIncomeStartDate.Location = new System.Drawing.Point(119, 62);
             this.dtIncomeStartDate.MaxDate = new System.DateTime(2029, 12, 31, 0, 0, 0, 0);
             this.dtIncomeStartDate.MinDate = new System.DateTime(2009, 12, 31, 0, 0, 0, 0);
-            this.dtIncomeStartDate.MinimumSize = new System.Drawing.Size(0, 25);
+            this.dtIncomeStartDate.MinimumSize = new System.Drawing.Size(4, 25);
             this.dtIncomeStartDate.Name = "dtIncomeStartDate";
             this.dtIncomeStartDate.Size = new System.Drawing.Size(173, 25);
             this.dtIncomeStartDate.TabIndex = 28;
@@ -1621,5 +1635,6 @@
         public System.Windows.Forms.ColumnHeader columnHeader2;
         public System.Windows.Forms.ListView successListView;
         public System.Windows.Forms.ColumnHeader columnHeader1;
+        public MetroFramework.Controls.MetroLabel lblVerilerGonderildi;
     }
 }

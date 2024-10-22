@@ -32,7 +32,10 @@ namespace Reisswolf.Desktop
                 Core.ActiveUser = user;
 
                 Program.ValidLogin = true;
-                this.Close();
+                this.Hide();
+
+                var df = new Dashboard();
+                df.Show();
             }
             else
             {
